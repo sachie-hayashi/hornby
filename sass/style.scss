@@ -1,0 +1,329 @@
+/************************************
+  Bootstrap customization
+************************************/
+
+// import only the necessary Bootstrap files
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+/* -------begin customization-------- */
+
+$theme-colors: (
+  dark-hotpink: #C94380,
+  whitesmoke: whitesmoke
+);
+
+/* -------end customization-------- */
+// import Bootstrap to set the changes
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+/************************************
+  Common styles
+************************************/
+
+/* ---------- Variables ---------- */
+
+$dark-gray: #434343;
+$dark-hotpink: #C94380;
+
+/* ---------- Mixins ---------- */
+
+@mixin links-dark($color: $dark-gray) {
+  color: $color;
+  &:hover {
+    color: lighten($dark-gray, 20%);
+  }
+  &:active {
+    color: lighten($dark-gray, 30%);
+  }
+}
+
+@mixin links-light($color: $white) {
+  color: $color;
+  &:hover {
+    color: $color;
+    opacity: 0.7;
+  }
+  &:active {
+    color: $color;
+    opacity: 0.5;
+  }
+}
+
+/* ------------------------------- */
+
+body {
+  font-family: 'Noto Sans JP', 'Noto Sans', sans-serif;
+  color: #707070;
+}
+
+// h1, h2, h3, h4, h5, h6 {
+//   color: $dark-gray;
+// }
+
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none
+  }
+}
+
+/************************************
+  Header
+************************************/
+
+header nav {
+  position: fixed;
+  z-index: 30;
+  width: 100vw;
+  background-color: whitesmoke;
+  box-shadow: #00000029 0 8px 16px;
+  transition-property: background-color, box-shadow, color;
+  transition-duration: .5s;
+  // transition: .5s;
+
+
+  a, i {
+    @include links-dark();
+  }
+
+  @include media-breakpoint-down(sm) {
+    .main-nav {
+      a, i {
+        @include links-light();
+      }
+    }
+  }
+}
+
+// .nav-not-transparent {
+//   box-shadow: #00000029 0 8px 16px;
+//   background-color: whitesmoke;
+//   // transition: .5s;
+
+//   a, i {
+//     @include links-dark();
+//   }
+
+//   @include media-breakpoint-down(sm) {
+//     .main-nav {
+//       a, i {
+//         @include links-light();
+//       }
+//     }
+//   }
+// }
+
+.nav-transparent {
+  background-color: transparent;
+  box-shadow: none;
+  // transition: .5s;
+
+  a, i {
+    @include links-light();
+  }
+}
+
+.nav-container {
+  // display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 92%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  text-align: center;
+  @include media-breakpoint-down(sm) {
+    width: 100vw;
+  }
+
+  #toggle-open {
+    position: absolute;
+    left: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .nav-toggle {
+    border: none;
+    background-color: transparent;
+    &:focus {
+      outline: none;
+    }
+
+    .toggle-icon {
+      font-size: 1.6rem;
+    }
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 500;
+    @include media-breakpoint-down(sm) {
+      font-size: 1.4rem;
+    }
+  }
+  
+  .main-nav {
+    @include media-breakpoint-down(sm) {
+      // display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 84vw;
+      height: 100vh;
+      padding: 2.2rem 3.5rem;
+      background-color: $dark-hotpink;
+      transform: translateX(-100%);
+      // transition: transform .6s;
+    }
+    
+    .mobile-nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4.5rem;
+      
+      .mobile-logo {
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+
+    }
+    
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+      padding-left: 0;
+      list-style: none;
+      @include media-breakpoint-down(sm) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      li {
+        margin-left: 2.2rem;
+        @include media-breakpoint-down(sm) {
+          margin: 0 0 2rem;
+        }
+        
+        a {
+          display: flex;
+          align-items: center;
+          font-weight: 500;
+
+          .material-icons {
+            margin-right: 1rem;
+            opacity: 0.6;
+            @include media-breakpoint-up(md) {
+              display: none;
+            }
+          }
+        }
+
+        .fa-serch {
+          font-size: 1.2rem;
+        }
+      }
+    }
+    
+    .mobile-nav-bottom {
+      position: absolute;
+      bottom: 2.2rem;
+
+      .social-icon {
+        margin-right: 1.25rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+  
+  .nav-active {
+    transform: translateX(0);
+  }
+
+  .nav-transition {
+    transition: transform .6s;
+  }
+
+  // .nav-expanded {
+  //   display: block !important;
+  // }
+
+  
+}
+
+
+
+/************************************
+  Body
+************************************/
+
+/* ------------ Carousel ------------- */
+
+.carousel-indicators {
+  li {
+    width: 0.7rem;
+    height: 0.7rem;
+    margin: 0 0.25rem;
+    border-radius: 50%;
+  }
+}
+
+.carousel-inner {
+  // position: relative;
+  // background-image: url(../img/hero-img_desktop-3820634_1920.jpg);
+  // background-size: cover;
+  
+  // &::before {
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   width: 100%;
+    //   height: 100%;
+    //   background-color: rgba(0, 0, 0, 0.5);
+    //   content: '';
+  // }
+    
+  .carousel-item {
+    width: 100vw;
+    height: 100vh;
+    color: white;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      content: '';
+    }
+    
+    img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .carousel-caption {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+  }
+
+  a {
+    z-index: 20;
+  }
+
+}
