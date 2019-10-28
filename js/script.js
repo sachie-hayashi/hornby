@@ -6,15 +6,15 @@ $(function() {
   /* ---------------- Slide mobile navigagion ---------------- */
   
   $('.nav-toggle').click(function() {
-    //   // $('.main-nav').toggle('slide');
-    //   // $('#main-nav, .mobile-logo').animate({width: 'toggle'}, 'slow', function() {
+    //   // $('.main-menu').toggle('slide');
+    //   // $('#main-menu, .mobile-logo').animate({width: 'toggle'}, 'slow', function() {
       //   //   $(this).toggleClass('nav-expanded').css('display', '');
       //   // });
 
-    $('#main-nav').addClass('nav-transition');
-    $('#main-nav').toggleClass('nav-active');
+    $('#main-menu').addClass('nav-transition');
+    $('#main-menu').toggleClass('nav-active');
     setTimeout(function() {
-      $('#main-nav').removeClass('nav-transition');
+      $('#main-menu').removeClass('nav-transition');
     }, 600)
     
   });
@@ -25,6 +25,12 @@ $(function() {
   const $scrollPosition = $(document).scrollTop();
   const $home = $('body').is('#home');
 
+  function changeNavColor() {
+    $(document).scroll(function() {
+      $nav.toggleClass('nav-transparent', $(this).scrollTop() <= $nav.height());
+    });
+  }
+
   if (!$home) {
     $nav.removeClass('nav-transparent');
   } else if ($home && $scrollPosition > $nav.height()) {
@@ -34,11 +40,24 @@ $(function() {
     changeNavColor();
   }
 
-  function changeNavColor() {
-    $(document).scroll(function() {
-      $nav.toggleClass('nav-transparent', $(this).scrollTop() <= $nav.height());
-    });
+
+  /* ---------------- Change padding for responsive cards ---------------- */
+
+  const $cardBody = $('.blog-card .card-body');
+
+  function changeCardPadding() {
+    const $cardWidth = $cardBody.outerWidth();
+    if ($cardWidth >= 340) {
+      $cardBody.css('padding', '12%');
+    } else {
+      $cardBody.css('padding', '');
+    }
   }
+  
+  // Execute on load
+  changeCardPadding();
+  // Bind event listener
+  $(window).resize(changeCardPadding);
 
   
 });    
