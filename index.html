@@ -13,11 +13,11 @@
     <script src="https://kit.fontawesome.com/e73c9f8b45.js" crossorigin="anonymous"></script>
   </head>
   <body id="home">
+    <!-- -------------------- Navigation -------------------- -->
     <header>
-      <!-- -------------------- Navigation -------------------- -->
       <nav class="nav-transparent">
         <div class="nav-container d-md-flex">
-          <button id="toggle-open" class="nav-toggle d-md-none">
+          <button type="button" class="nav-toggle nav-open btn-transparent d-md-none">
             <i class="fas fa-bars toggle-icon"></i>
           </button>
           <a href="#" class="logo">Logo</a>
@@ -25,7 +25,7 @@
             <div id="main-menu" class="main-menu">
               <div class="mobile-nav-top d-md-none">
                 <a href="#" class="mobile-logo">Logo</a>
-                <button id="toggle-close" class="nav-toggle d-md-none">
+                <button type="button" class="nav-toggle btn-transparent d-md-none">
                   <i class="fas fa-times toggle-icon"></i>
                 </button>
               </div>
@@ -102,7 +102,7 @@
         <div class="about section-wrap">
           <div class="container">
             <div class="row">
-              <div class="col-md pr-300">
+              <div class="col-md mb-400 mb-md-0 pr-md-300">
                 <h2>Who we are</h2>
                 <span class="separator"></span>
                 <p class="mb-375">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Accumsan lacus vel facilisis volutpat est velit. Nulla facilisi morbi tempus iaculis urna. Nulla at volutpat diam ut venenatis tellus. Urna nec tincidunt praesent semper feugiat.</p>
@@ -120,12 +120,17 @@
         <div class="more-about">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-md-4 px-0">
-                <img src="img/learnmore_contemporary-design-illuminated-1090638.jpg" alt="contemporary interior design" class="img-cover">
+              <div class="col-md-8 order-md-2 section-wrap-dark-hotpink">
+                <div class="text-container">
+                  <h2 class="mb-325">Learn more about us</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At lectus urna duis convallis convallis tellus id. Egestas maecenas pharetra convallis posuere.</p>
+                </div>
               </div>
-              <div class="col-md-8 section-wrap-dark-hotpink px-750">
-                <h2 class="mb-325">Learn more about us</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. At lectus urna duis convallis convallis tellus id. Egestas maecenas pharetra convallis posuere.</p>
+              <div class="col-md-4 overlay-img-container order-md-1 px-0">
+                <img src="img/learnmore_contemporary-design-illuminated-1090638.jpg" alt="contemporary interior design" class="img-cover">
+                <button type="button" id="video-modal-show" class="video-modal-toggle btn-transparent">
+                  <i class="material-icons">play_circle_outline</i>
+                </button>
               </div>
             </div>
           </div>
@@ -137,7 +142,7 @@
           <div class="container">
             <h2>Our services</h2>
             <span class="separator"></span>
-            <div class="row mb-375">
+            <div class="row mb-md-375">
               <div class="col-md service-wrap">
                 <i class="material-icons">view_list</i>
                 <h3>Branding</h3>
@@ -157,8 +162,8 @@
                 <a href="#" >Read More<i class="fas fa-angle-double-right"></i></a>
               </div>
             </div>
+            <a href="#" class="btn btn-dark-hotpink">More Services</a>
           </div>
-          <a href="#" class="btn btn-dark-hotpink">More Services</a>
         </div>
       </section>
       <!-- -------------------- Work -------------------- -->
@@ -171,22 +176,30 @@
             <div class="row no-gutters">
               <div class="col-sm-6 col-md">
                 <div class="inner">
-                  <img src="img/works1_aquarium-architectural-design-architecture-2659578.jpg" alt="aquarium architectural design">
+                  <a href="img/works1_aquarium-architectural-design-architecture-2659578.jpg">
+                    <img src="img/works1_aquarium-architectural-design-architecture-2659578.jpg" alt="aquarium architectural design">
+                  </a>
                 </div>
               </div>
               <div class="col-sm-6 col-md">
                 <div class="inner">
-                  <img src="img/works2_workplace-2303851_1920.jpg" alt="workplace">
-                </div>
-              </div>
-              <div class="col-sm-6 col-md">
-                <div class="inner">                  
-                  <img src="img/works3_art-artistic-beautiful-311458.jpg" alt="colorful houseplants">
+                  <a href="img/works2_workplace-2303851_1920.jpg">
+                    <img src="img/works2_workplace-2303851_1920.jpg" alt="workplace">
+                  </a>
                 </div>
               </div>
               <div class="col-sm-6 col-md">
                 <div class="inner">
-                  <img src="img/works4_architectural-design-architecture-building-2290609.jpg" alt="building architectural design">                  
+                  <a href="img/works3_art-artistic-beautiful-311458.jpg">
+                    <img src="img/works3_art-artistic-beautiful-311458.jpg" alt="colorful houseplants">
+                  </a>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md">
+                <div class="inner">
+                  <a href="img/works4_architectural-design-architecture-building-2290609.jpg">
+                    <img src="img/works4_architectural-design-architecture-building-2290609.jpg" alt="building architectural design">                  
+                  </a>
                 </div>
               </div>
             </div>
@@ -229,7 +242,7 @@
                 </div>
               </div>
               <!-- ---------- Skill section image ---------- -->
-              <div class="col-md img-wrap">
+              <div class="col-md img-container">
                 <div class="inner">
                   <img src="img/skills_apple-clean-containers-205316.jpg" alt="Silver imak on desk">
                 </div>
@@ -245,54 +258,60 @@
             <h2>Latest news</h2>
             <span class="separator"></span>
             <div class="row mb-375">
-              <div class="col-md blog-card">
-                <div class="card-img">
-                  <div class="inner">
-                    <img src="img/news1_art-artistic-beautiful-244497.jpg" alt="floral design">
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h3><a href="#">Arcu urna platea facilisis</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</p>
-                  <div class="card-body-bottom">
-                    <div class="category">
-                      <a href="#">Art</a>
+              <div class="col-md-6 col-lg">
+                <div class="blog-card">
+                  <div class="card-img">
+                    <div class="inner">
+                      <img src="img/news1_art-artistic-beautiful-244497.jpg" alt="floral design">
                     </div>
-                    <span>Aug 30, 2019</span>
+                  </div>
+                  <div class="card-body">
+                    <h3><a href="#">Arcu urna platea facilisis</a></h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</p>
+                    <div class="card-body-bottom">
+                      <div class="category">
+                        <a href="#">Art</a>
+                      </div>
+                      <span>Aug 30, 2019</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md blog-card">
-                <div class="card-img">
-                  <div class="inner">
-                    <img src="img/news2_accessories-assortment-background-1065706.jpg" alt="accessories">
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h3><a href="#">Ipsum sapien velit</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</p>
-                  <div class="card-body-bottom">
-                    <div class="category">
-                        <a href="#">Art</a>
+              <div class="col-md-6 col-lg">
+                <div class="blog-card">
+                  <div class="card-img">
+                    <div class="inner">
+                      <img src="img/news2_accessories-assortment-background-1065706.jpg" alt="accessories">
                     </div>
-                    <span>Jul 18, 2019</span>
+                  </div>
+                  <div class="card-body">
+                    <h3><a href="#">Ipsum sapien velit</a></h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</p>
+                    <div class="card-body-bottom">
+                      <div class="category">
+                          <a href="#">Art</a>
+                      </div>
+                      <span>Jul 18, 2019</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md blog-card">
-                <div class="card-img">
-                  <div class="inner">
-                    <img src="img/news3_art-artificial-flowers-color-1999263.jpg" alt="flower art">
-                  </div>
-                </div>
-                <div class="card-body">
-                  <h3><a href="#">Quam sed justo primis</a></h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</p>
-                  <div class="card-body-bottom">
-                    <div class="category">
-                        <a href="#">Art</a>
+              <div class="col-md-6 col-lg">
+                <div class="blog-card">
+                  <div class="card-img">
+                    <div class="inner">
+                      <img src="img/news3_art-artificial-flowers-color-1999263.jpg" alt="flower art">
                     </div>
-                    <span>Jul 7, 2019</span>
+                  </div>
+                  <div class="card-body">
+                    <h3><a href="#">Quam sed justo primis</a></h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</p>
+                    <div class="card-body-bottom">
+                      <div class="category">
+                          <a href="#">Art</a>
+                      </div>
+                      <span>Jul 7, 2019</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -301,7 +320,6 @@
           </div>
         </div>
       </section>
-      <!-- -------------------- Newsletter -------------------- -->
       <section>
         <div class="newsletter section-wrap-dark-hotpink text-center">
           <div class="container">
@@ -374,10 +392,11 @@
       </section>
     </div>
 
+    <!-- -------------------- Footer -------------------- -->
     <footer class="py-600 bg-dim-gray text-white">
       <div class="container">
         <div class="d-md-flex justify-content-between align-items-start">
-          <div class="footer-content d-md-flex">
+          <div class="footer-content">
             <div class="">
               <h4>Company</h4>
               <p>Copyright ©2019 Your company<br> All rights reserved</p>
@@ -396,12 +415,17 @@
       </div>
     </footer>
 
-    
-
-
-
-
-
+    <!-- -------------------- Video modal -------------------- -->
+    <div id="video-modal" class="video-modal-toggle video-modal-wrap">
+      <button class="btn-transparent">
+        <span>&times;</span>
+      </button>
+      <div class="video-container">
+        <div class="inner">
+          <iframe src="https://www.youtube.com/embed/MLpWrANjFbI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>    
 
     <script src="node_modules/jquery/jquery.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>  <!-- for popper.js -->
@@ -410,4 +434,3 @@
   </body>
 
 </html>
-

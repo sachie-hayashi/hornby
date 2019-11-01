@@ -10,7 +10,7 @@ $(function() {
     //   // $('#main-menu, .mobile-logo').animate({width: 'toggle'}, 'slow', function() {
       //   //   $(this).toggleClass('nav-expanded').css('display', '');
       //   // });
-
+    
     $('#main-menu').addClass('nav-transition');
     $('#main-menu').toggleClass('nav-active');
     setTimeout(function() {
@@ -40,7 +40,6 @@ $(function() {
     changeNavColor();
   }
 
-
   /* ---------------- Change padding for responsive cards ---------------- */
 
   const $cardBody = $('.blog-card .card-body');
@@ -52,12 +51,21 @@ $(function() {
     } else {
       $cardBody.css('padding', '');
     }
-  }
-  
+  }  
   // Execute on load
   changeCardPadding();
   // Bind event listener
   $(window).resize(changeCardPadding);
+
+  /* ---------------- Video modal popup ---------------- */
+  
+  // $('#video-modal-show').click(function() {
+  //   $('#video-modal').fadeIn();
+  // });
+
+  $('.video-modal-toggle').click(function() {
+    $('#video-modal').fadeToggle();
+  });
 
   
 });    
