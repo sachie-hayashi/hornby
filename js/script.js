@@ -5,19 +5,24 @@ $(function() {
 
   /* ---------------- Slide mobile navigagion ---------------- */
   
-  $('.nav-toggle').click(function() {
-    //   // $('.main-menu').toggle('slide');
-    //   // $('#main-menu, .mobile-logo').animate({width: 'toggle'}, 'slow', function() {
-      //   //   $(this).toggleClass('nav-expanded').css('display', '');
-      //   // });
-    
+  $('.nav-toggle, #mobile-bg-overlay').click(function() {    
+    $('#mobile-bg-overlay').fadeToggle();
     $('#main-menu').addClass('nav-transition');
     $('#main-menu').toggleClass('nav-active');
     setTimeout(function() {
       $('#main-menu').removeClass('nav-transition');
-    }, 600)
-    
+    }, 600);    
   });
+
+  // $('.nav-toggle').click(function() {
+    
+  //   $('#main-menu').addClass('nav-transition');
+  //   $('#main-menu').toggleClass('nav-active');
+  //   setTimeout(function() {
+  //     $('#main-menu').removeClass('nav-transition');
+  //   }, 600)
+    
+  // });
 
   /* ---------------- Change navigation color on scroll ---------------- */
 

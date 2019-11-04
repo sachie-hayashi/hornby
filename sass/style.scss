@@ -41,6 +41,7 @@ $gray: #707070;
 $light-gray: #D6D6D6;
 $dark-gray: #434343;
 $dim-gray: #888385;
+$whitesmoke: whitesmoke;
 $dark-hotpink: #C94380;
 $soft-marigold: #EDC6A4;
 
@@ -55,25 +56,25 @@ $text-container-max-widthes: (
 
 /* ---------- Mixins ---------- */
 
-@mixin links($type: dark, $color: $dark-gray) {
+@mixin links($type: dark, $color: $dark-gray, $pseudo: null) {
   color: $color;
 
   @if $type == dark {
-    &:hover {
+    &:hover#{$pseudo} {
       color: lighten($color, 20%);
     }
   
-    &:active {
+    &:active#{$pseudo} {
       color: lighten($color, 30%);
     }
 
   } @else if $type == light {
-    &:hover {
+    &:hover#{$pseudo} {
       color: $color;
       opacity: 0.7;
     }
   
-    &:active {
+    &:active#{$pseudo} {
       color: $color;
       opacity: 0.5;
     }
@@ -87,8 +88,8 @@ $text-container-max-widthes: (
   object-fit: $object-fit;
 }
 
-@mixin position-absolute($top: null, $left: null, $right: null, $bottom: null) {
-  position: absolute;
+@mixin position($position, $top: null, $left: null, $right: null, $bottom: null) {
+  position: $position;
   top: $top;
   left: $left;
   right: $right;
@@ -121,7 +122,7 @@ $text-container-max-widthes: (
   }
 
   > .inner {
-    @include position-absolute(0, 0, 0, 0);
+    @include position(absolute, 0, 0, 0, 0);
   }  
 }
 
@@ -209,17 +210,12 @@ header nav {
   position: fixed;
   z-index: 30;
   width: 100vw;
-  background-color: whitesmoke;
+  background-color: $whitesmoke;
   box-shadow: 0 0.5rem 1rem #00000029;
   transition-property: background-color, box-shadow, color;
   transition-duration: .5s;
-  // transition: .5s;
 
-
-  // a, i, .search-form::before, .search-form input {
-  //   @include links();
-  // }
-  a, i, .search-form {
+  a, i {
     @include links();
   }
 
@@ -228,28 +224,6 @@ header nav {
       a, i {
         @include links(light, $white);
       }
-    }
-  }
-}
-
-.nav-transparent {
-  background-color: transparent;
-  box-shadow: none;
-  // transition: .5s;
-
-  a, i, .search-form {
-    @include links(light, $white);
-  }
-
-  .search-form input {
-    color: $white;
-  }
-
-  @include media-breakpoint-down(sm) {
-    .search-form input:focus {
-      z-index: -10;
-      width: 14rem !important;
-      background-color: #8c8c8c;
     }
   }
 }
@@ -268,7 +242,7 @@ header nav {
   }
 
   .nav-open {
-    @include position-absolute(50%, 1rem);
+    @include position(absolute, 50%, 1rem);
     transform: translateY(-50%);
   }
 
@@ -285,26 +259,28 @@ header nav {
       font-size: 1.4rem;
     }
   }
+
+  .mobile-bg-overlay {
+    @include media-breakpoint-down(sm) {
+      @include position(absolute, 0, 0);
+      z-index: 10;
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+  }
   
   .main-menu {
     @include media-breakpoint-down(sm) {
-      @include position-absolute(0, 0);
+      @include position(absolute, 0, 0);
+      z-index: 20;
       width: 84vw;
       height: 100vh;
       padding: 2.2rem 3.5rem;
       background-color: $dark-hotpink;
       transform: translateX(-100%);
-      // transition: transform .6s;
-      
-      // &::before {
-      //   display: none;
-      //   @include position-absolute(0, 0);
-      //   z-index: -10;
-      //   width: 100vw;
-      //   height: 100vh;
-      //   background-color: rgba(0, 0, 0, 0.6);
-      //   content: '';
-      // }
     }
     
     .mobile-nav-top {
@@ -354,7 +330,7 @@ header nav {
     }
     
     .mobile-nav-bottom {
-      @include position-absolute($bottom: 2.2rem);
+      @include position(absolute, $bottom: 2.2rem);
 
       .social-icon {
         margin-right: 1.25rem;
@@ -366,14 +342,14 @@ header nav {
   .search-form {
     position: relative;
     margin-left: 2.2rem;
+    @include links($pseudo: '::before');
     @include media-breakpoint-down(sm) {
-      @include position-absolute($top: 50%, $right: 1rem);
-      z-index: -20;
+      @include position(absolute, $top: 50%, $right: 1rem);
       transform: translateY(-50%);
     }
 
     &::before {
-      @include position-absolute(50%, 0.5rem);
+      @include position(absolute, 50%, 0.5rem);
       font-family: "Font Awesome 5 Pro";
       font-size: 1.25rem;
       font-weight: 900;
@@ -399,6 +375,11 @@ header nav {
         padding-left: 2rem;
         border: 1px solid #ced4da;
         box-shadow: none;
+        @include media-breakpoint-down(sm) {
+          z-index: -10;
+          width: 14rem !important;
+          background-color: $whitesmoke;
+        }
       }
     }
   }
@@ -414,8 +395,29 @@ header nav {
   // .nav-expanded {
   //   display: block !important;
   // }
-
   
+}
+
+.nav-transparent {
+  background-color: transparent;
+  box-shadow: none;
+
+  a, i {
+    @include links(light, $white);
+  }
+
+  .search-form {
+    @include links(light, $white, '::before');
+  }
+
+  .search-form input {
+    color: $white;
+    @include media-breakpoint-down(sm) {
+      &:focus {
+        background-color: #8c8c8c;
+      }
+    }
+  }
 }
 
 
@@ -455,7 +457,7 @@ header nav {
     color: $white;
 
     &::before {
-      @include position-absolute(0, 0, 0, 0);
+      @include position(absolute, 0, 0, 0, 0);
       z-index: 10;
       background-color: rgba(0, 0, 0, 0.45);
       content: '';
@@ -503,7 +505,7 @@ header nav {
     position: relative;
 
     button {
-      @include position-absolute(50%, 50%);
+      @include position(absolute, 50%, 50%);
       @include links(light, $white);
       transform: translate(-50%, -50%);
 
@@ -568,7 +570,7 @@ header nav {
           color: $white;
           
           &::before {
-            @include position-absolute(0, 0, 0, 0);
+            @include position(absolute, 0, 0, 0, 0);
             display: flex;
             align-items: flex-end;
             padding: 1.25rem;
@@ -621,7 +623,7 @@ header nav {
           background-color: $dark-hotpink;
       
           .progress-percentage {
-            @include position-absolute($right: 0);
+            @include position(absolute, $right: 0);
             @extend .progress-title;
             font-size: 1rem;
             transform: translateY(-100%);
@@ -736,7 +738,7 @@ header nav {
     }
 
     .btn-gradient-pink {
-      @include position-absolute($top: 50%, $right: 0.25rem);
+      @include position(absolute, $top: 50%, $right: 0.25rem);
       border: none;
       background-image: $gradient-pink;
       color: $white;
@@ -847,18 +849,16 @@ footer {
 
 .video-modal-wrap {
   display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
+  @include position(fixed, 0, 0);
   width: 100%;
   height: 100%;
   z-index: 100;
   background-color: rgba(0, 0, 0, 0.8);
 
   button {
-    @include position-absolute($top: 1.75rem, $right: 1.75rem);
+    @include position(absolute, $top: 1.75rem, $right: 1.75rem);
     @include media-breakpoint-down(md) {
-      @include position-absolute($top: 1rem, $right: 1rem);
+      @include position(absolute, $top: 1rem, $right: 1rem);
     }
     
     >span {
