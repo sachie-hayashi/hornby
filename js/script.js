@@ -14,16 +14,6 @@ $(function() {
     }, 600);    
   });
 
-  // $('.nav-toggle').click(function() {
-    
-  //   $('#main-menu').addClass('nav-transition');
-  //   $('#main-menu').toggleClass('nav-active');
-  //   setTimeout(function() {
-  //     $('#main-menu').removeClass('nav-transition');
-  //   }, 600)
-    
-  // });
-
   /* ---------------- Change navigation color on scroll ---------------- */
 
   const $nav = $("header nav");
@@ -64,10 +54,6 @@ $(function() {
 
   /* ---------------- Video modal popup ---------------- */
   
-  // $('#video-modal-show').click(function() {
-  //   $('#video-modal').fadeIn();
-  // });
-
   $('.video-modal-toggle').click(function() {
     $('#video-modal').fadeToggle();
   });

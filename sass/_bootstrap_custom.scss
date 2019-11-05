@@ -1,0 +1,31 @@
+/************************************
+  Bootstrap customization
+************************************/
+
+// import only the necessary Bootstrap files
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+/* -------begin customization-------- */
+
+// Theme colors
+$theme-colors: (
+  light-gray: $light-gray,
+  dark-gray: $dark-gray,
+  dim-gray: $dim-gray,
+  dark-hotpink: $dark-hotpink,
+  whitesmoke: $whitesmoke
+);
+
+// Spacing & Sizing
+// 0, 25(0.25rem), 50(0.5rem), 75(0.75rem), 100(1rem)...1000(10rem)
+@for $i from 1 through 40 {
+  $spacers: map-merge($spacers, (
+    ($i * 25): ($i * 0.25rem)
+  ));
+}
+
+/* -------end customization-------- */
+// import Bootstrap to set the changes
+@import "../node_modules/bootstrap/scss/bootstrap";

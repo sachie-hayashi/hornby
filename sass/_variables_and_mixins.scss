@@ -1,0 +1,94 @@
+/************************************
+  Variables & mixins
+************************************/
+
+/* ---------- Variables ---------- */
+
+$gray: #707070;
+$light-gray: #D6D6D6;
+$dark-gray: #434343;
+$dim-gray: #888385;
+$whitesmoke: whitesmoke;
+$dark-hotpink: #C94380;
+$soft-marigold: #EDC6A4;
+
+$gradient-pink: linear-gradient($soft-marigold, $dark-hotpink);
+
+$text-container-max-widthes: (
+  sm: 540px,
+  lg: 580px,
+  xl: 640px
+);
+
+
+/* ---------- Mixins ---------- */
+
+@mixin links($type: dark, $color: $dark-gray, $pseudo: null) {
+  color: $color;
+
+  @if $type == dark {
+    &:hover#{$pseudo} {
+      color: lighten($color, 20%);
+    }
+  
+    &:active#{$pseudo} {
+      color: lighten($color, 30%);
+    }
+
+  } @else if $type == light {
+    &:hover#{$pseudo} {
+      color: $color;
+      opacity: 0.7;
+    }
+  
+    &:active#{$pseudo} {
+      color: $color;
+      opacity: 0.5;
+    }
+  }
+
+}
+
+@mixin img-size($width: 100%, $height: 100%, $object-fit: cover) {
+  width: $width;
+  height: $height;
+  object-fit: $object-fit;
+}
+
+@mixin position($position, $top: null, $left: null, $right: null, $bottom: null) {
+  position: $position;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bottom;
+}
+
+@mixin section-base($heading-color: $dark-gray) {
+  padding: 6.5rem 0;
+
+  @if $heading-color != $dark-gray {
+    color: $heading-color;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+
+    @if $heading-color == $dark-gray {
+      color: $heading-color;
+    }
+  }  
+}
+
+@mixin aspect-ratio($width: 1, $height: 1) {
+  position: relative;
+
+  &::before {
+    display: block;
+    padding-top: $height / $width * 100%;
+    content: '';
+  }
+
+  > .inner {
+    @include position(absolute, 0, 0, 0, 0);
+  }  
+}
