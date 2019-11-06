@@ -1,0 +1,40 @@
+/************************************
+  Modal
+************************************/
+
+.video-modal-wrap {
+  display: none;
+  @include position(fixed, 0, 0);
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  button {
+    @include position(absolute, $top: 1.75rem, $right: 1.75rem);
+    @include media-breakpoint-down(md) {
+      @include position(absolute, $top: 1rem, $right: 1rem);
+    }
+    
+    >span {
+      @include links(light, $white);
+      font-size: 1.75rem;
+    }
+  }
+
+  .video-container {
+    @include aspect-ratio(560, 315);
+    top: 50%;
+    left: 50%;
+    width: 72%;
+    transform: translate(-50%, -50%);
+    @include media-breakpoint-down(md) {
+      width: 92%;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

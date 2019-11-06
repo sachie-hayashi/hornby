@@ -35,13 +35,13 @@
                   <a href="index.html"><i class="material-icons">home</i>Home</a>
                 </li>
                 <li>                
-                  <a href="test.html"><i class="material-icons">build</i>Services</a>
+                  <a href="#services"><i class="material-icons">build</i>Services</a>
                 </li>
                 <li>
-                  <a href="#"><i class="material-icons">speaker_notes</i>Blog</a>
+                  <a href="archive.html"><i class="material-icons">speaker_notes</i>Blog</a>
                 </li>
                 <li>
-                  <a href="#"><i class="material-icons">email</i>Contact</a>
+                  <a href="#contact"><i class="material-icons">email</i>Contact</a>
                 </li>
               </ul>
               <div class="mobile-nav-bottom d-md-none">
@@ -139,7 +139,7 @@
       </section>
       <!-- -------------------- Services -------------------- -->
       <section>
-        <div class="services section-wrap bg-whitesmoke text-center ">
+        <div id="services" class="services section-wrap bg-whitesmoke text-center ">
           <div class="container">
             <h2>Our services</h2>
             <span class="separator"></span>
@@ -148,19 +148,19 @@
                 <i class="material-icons">view_list</i>
                 <h3>Branding</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore ...</p>
-                <a href="#" >Read More<i class="fas fa-angle-double-right"></i></a>
+                <a href="#" class="read-more-link">Read More<i class="fas fa-angle-double-right"></i></a>
               </div>
               <div class="col-md service-wrap">
                 <i class="material-icons">perm_data_setting</i>
                 <h3>Development</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore ...</p>
-                <a href="#" >Read More<i class="fas fa-angle-double-right"></i></a>
+                <a href="#" class="read-more-link">Read More<i class="fas fa-angle-double-right"></i></a>
               </div>
               <div class="col-md service-wrap">
                 <i class="material-icons">transform</i>
                 <h3>Marketing</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore ...</p>
-                <a href="#" >Read More<i class="fas fa-angle-double-right"></i></a>
+                <a href="#" class="read-more-link">Read More<i class="fas fa-angle-double-right"></i></a>
               </div>
             </div>
             <a href="#" class="btn btn-dark-hotpink">More Services</a>
@@ -269,11 +269,15 @@
                   <div class="card-body">
                     <h3><a href="#">Arcu urna platea facilisis</a></h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</p>
-                    <div class="card-body-bottom">
+                    <div class="entry-meta">
                       <div class="category">
                         <a href="#">Art</a>
                       </div>
-                      <span>Aug 30, 2019</span>
+                      <span class="entry-date">
+                        <a href="#">
+                          <time datetime="2019-07-07">Aug 30, 2019</time>
+                        </a>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -288,11 +292,15 @@
                   <div class="card-body">
                     <h3><a href="#">Ipsum sapien velit</a></h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</p>
-                    <div class="card-body-bottom">
+                    <div class="entry-meta">
                       <div class="category">
-                          <a href="#">Art</a>
+                        <a href="#">Art</a>
                       </div>
-                      <span>Jul 18, 2019</span>
+                      <span class="entry-date">
+                        <a href="#">
+                          <time datetime="2019-07-07">Jul 18, 2019</time>
+                        </a>
+                      </span>                      
                     </div>
                   </div>
                 </div>
@@ -307,11 +315,15 @@
                   <div class="card-body">
                     <h3><a href="#">Quam sed justo primis</a></h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</p>
-                    <div class="card-body-bottom">
+                    <div class="entry-meta">
                       <div class="category">
-                          <a href="#">Art</a>
+                        <a href="#">Art</a>
                       </div>
-                      <span>Jul 7, 2019</span>
+                      <span class="entry-date">
+                        <a href="#">
+                          <time datetime="2019-07-07">Jul 7, 2019</time>
+                        </a>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -335,7 +347,7 @@
       </section>
       <!-- -------------------- Contact -------------------- -->
       <section>
-        <div class="contact section-wrap">
+        <div id="contact" class="contact section-wrap">
           <div class="container">
             <div class="row">
               <div class="col-md">

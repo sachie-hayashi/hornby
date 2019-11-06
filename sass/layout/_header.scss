@@ -1,0 +1,217 @@
+/************************************
+  Header
+************************************/
+
+header nav {
+  position: fixed;
+  z-index: 30;
+  width: 100vw;
+  background-color: $whitesmoke;
+  box-shadow: 0 0.5rem 1rem #00000029;
+  transition-property: background-color, box-shadow, color;
+  transition-duration: .5s;
+
+  a, i {
+    @include links();
+  }
+
+  @include media-breakpoint-down(sm) {
+    .main-menu {
+      a, i {
+        @include links(light, $white);
+      }
+    }
+  }
+}
+
+.nav-container {
+  // display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 92%;
+  margin: 0 auto;
+  padding: 1rem 0;
+  text-align: center;
+  @include media-breakpoint-down(sm) {
+    width: 100vw;
+  }
+
+  .nav-open {
+    @include position(absolute, 50%, 1rem);
+    transform: translateY(-50%);
+  }
+
+  .nav-toggle {
+    .toggle-icon {
+      font-size: 1.6rem;
+    }
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 500;
+    @include media-breakpoint-down(sm) {
+      font-size: 1.4rem;
+    }
+  }
+
+  .mobile-bg-overlay {
+    @include media-breakpoint-down(sm) {
+      @include position(absolute, 0, 0);
+      z-index: 10;
+      display: none;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+  }
+  
+  .main-menu {
+    @include media-breakpoint-down(sm) {
+      @include position(absolute, 0, 0);
+      z-index: 20;
+      width: 84vw;
+      height: 100vh;
+      padding: 2.2rem 3.5rem;
+      background-color: $dark-hotpink;
+      transform: translateX(-100%);
+    }
+    
+    .mobile-nav-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4.5rem;
+      
+      .mobile-logo {
+        font-size: 1.5rem;
+        font-weight: 500;
+      }
+
+    }
+    
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+      padding-left: 0;
+      list-style: none;
+      @include media-breakpoint-down(sm) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      li {
+        margin-left: 2.2rem;
+        @include media-breakpoint-down(sm) {
+          margin: 0 0 2rem;
+        }
+        
+        a {
+          display: flex;
+          align-items: center;
+          font-weight: 500;
+
+          .material-icons {
+            margin-right: 1rem;
+            opacity: 0.6;
+            @include media-breakpoint-up(md) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    
+    .mobile-nav-bottom {
+      @include position(absolute, $bottom: 2.2rem);
+
+      .social-icon {
+        margin-right: 1.25rem;
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  .search-form {
+    position: relative;
+    margin-left: 2.2rem;
+    @include links($pseudo: '::before');
+    @include media-breakpoint-down(sm) {
+      @include position(absolute, $top: 50%, $right: 1rem);
+      transform: translateY(-50%);
+    }
+
+    &::before {
+      @include position(absolute, 50%, 0.5rem);
+      font-family: "Font Awesome 5 Pro";
+      font-size: 1.25rem;
+      font-weight: 900;
+      transform: translateY(-50%);
+      content: '\f002';
+    }
+
+    input {
+      position: relative;
+      width: 2rem;
+      height: 2.25rem;
+      border: none;
+      border-radius: 50rem;
+      background-color: transparent;
+      transition: .5s;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:focus {
+        width: 12.5rem;
+        padding-left: 2rem;
+        border: 1px solid #ced4da;
+        box-shadow: none;
+        @include media-breakpoint-down(sm) {
+          z-index: -10;
+          width: 14rem !important;
+          background-color: $whitesmoke;
+        }
+      }
+    }
+  }
+  
+  .nav-active {
+    transform: translateX(0);
+  }
+
+  .nav-transition {
+    transition: transform .6s;
+  }
+
+  // .nav-expanded {
+  //   display: block !important;
+  // }
+  
+}
+
+.nav-transparent {
+  background-color: transparent;
+  box-shadow: none;
+
+  a, i {
+    @include links(light, $white);
+  }
+
+  .search-form {
+    @include links(light, $white, '::before');
+  }
+
+  .search-form input {
+    color: $white;
+    @include media-breakpoint-down(sm) {
+      &:focus {
+        background-color: #8c8c8c;
+      }
+    }
+  }
+}

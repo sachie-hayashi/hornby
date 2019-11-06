@@ -1,3 +1,13 @@
-@import "variables_and_mixins";
-@import "bootstrap_custom"; //Bootstrap customization
-@import "base.scss";
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+@import "base/bootstrap_custom"; //Bootstrap customization
+@import "base/base";
+
+@import "layout/header";
+@import "layout/footer";
+@import "layout/sidebar";
+@import "layout/modal";
+
+@import "pages/home";
+@import "pages/archive";

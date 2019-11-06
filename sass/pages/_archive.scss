@@ -1,0 +1,53 @@
+.page-wrap {
+  padding: 9.75rem 0 5.5rem;
+}
+
+.entry {
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: solid 2px $silver;
+}
+
+.entry-thumbnail {
+  @include aspect-ratio(10, 7);
+
+  img {
+    @include img-size();
+  }
+}
+
+.entry-title {
+  margin: 2rem 0 1rem;
+
+  a {
+    @include links();
+  }
+}
+
+.entry-meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  
+  .entry-date {
+    margin-right: 1.5rem;
+    
+    a {
+      @include links(dark, $dark-hotpink);
+      font-weight: 500;
+    }
+  }
+
+  .category {
+    a {
+      padding: 0 1.5rem;
+      @extend .btn, .btn-light-gray, .rounded-pill;
+      @include links(light, $white);
+      font-weight: 500;
+    }
+  }
+}
+
+.entry-content {
+  margin-bottom: 2rem;
+}

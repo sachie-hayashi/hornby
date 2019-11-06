@@ -3,7 +3,7 @@
 
 $(function() {
 
-  /* ---------------- Slide mobile navigagion ---------------- */
+  /* ---------------- Mobile slide navigagion ---------------- */
   
   $('.nav-toggle, #mobile-bg-overlay').click(function() {    
     $('#mobile-bg-overlay').fadeToggle();

@@ -1,0 +1,51 @@
+/************************************
+  Footer
+************************************/
+
+footer {
+  // @include section-base($white);
+  // background-color: $dim-gray;
+
+  .footer-content {
+    display: flex;
+    flex: 1;
+    @include media-breakpoint-down(sm) {
+      flex-direction: column;
+      margin-bottom: 2rem;
+    }
+
+    > div {
+      @include media-breakpoint-up(md) {
+        max-width: 15rem;
+        margin-right: 3rem;
+      }
+
+      h4 {
+        margin-bottom: 1.25rem;
+        font-size: 1.25rem;
+      }
+
+      p {
+        margin-bottom: 3.5rem;
+      }
+    }
+  }
+
+  .social-media {
+    flex: none;
+    text-align: center;
+
+    a {
+      display: inline-block;
+      @include links(light, $white);
+      
+      &:not(:first-child) {
+        margin-left: 0.5rem;
+      }
+
+      i {
+        font-size: 2rem;
+      }
+    }
+  }
+}

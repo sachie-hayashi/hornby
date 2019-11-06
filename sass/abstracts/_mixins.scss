@@ -1,27 +1,6 @@
 /************************************
-  Variables & mixins
+  mixins
 ************************************/
-
-/* ---------- Variables ---------- */
-
-$gray: #707070;
-$light-gray: #D6D6D6;
-$dark-gray: #434343;
-$dim-gray: #888385;
-$whitesmoke: whitesmoke;
-$dark-hotpink: #C94380;
-$soft-marigold: #EDC6A4;
-
-$gradient-pink: linear-gradient($soft-marigold, $dark-hotpink);
-
-$text-container-max-widthes: (
-  sm: 540px,
-  lg: 580px,
-  xl: 640px
-);
-
-
-/* ---------- Mixins ---------- */
 
 @mixin links($type: dark, $color: $dark-gray, $pseudo: null) {
   color: $color;
