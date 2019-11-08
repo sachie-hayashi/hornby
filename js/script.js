@@ -5,8 +5,8 @@ $(function() {
 
   /* ---------------- Mobile slide navigagion ---------------- */
   
-  $('.nav-toggle, #mobile-bg-overlay').click(function() {    
-    $('#mobile-bg-overlay').fadeToggle();
+  $('.nav-toggle, #main-menu-bg-overlay').click(function() {    
+    $('#main-menu-bg-overlay').fadeToggle();
     $('#main-menu').addClass('nav-transition');
     $('#main-menu').toggleClass('nav-active');
     setTimeout(function() {

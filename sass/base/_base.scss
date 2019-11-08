@@ -51,6 +51,23 @@ input, textarea {
   @extend .form-control;
 }
 
+.search-field-wrap {
+  position: relative;
+
+  &::before {
+    @include position(absolute, 50%, 0.75rem);
+    font-family: "Font Awesome 5 Pro";
+    font-size: 1.25rem;
+    font-weight: 900;
+    transform: translateY(-50%);
+    content: '\f002';
+  }
+
+  input {
+    padding-left: 2.5rem;
+  }
+}
+
 // Responsive font size
 // (Example: .font-md-300 -> font-size 3rem @break-point 768px and up)
 @each $breakpoint in map-keys($grid-breakpoints) {

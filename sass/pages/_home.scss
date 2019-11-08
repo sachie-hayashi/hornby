@@ -74,8 +74,8 @@
 
 .more-about {
   .text-container {
-    @include make-container();
-    @include make-container-max-widths($text-container-max-widthes, $grid-breakpoints)
+    @include make-container(); //Bootstrap mixin
+    @include make-container-max-widths($text-container-max-widthes, $grid-breakpoints); //Bootstrap mixin
   }
 
   .overlay-img-container {

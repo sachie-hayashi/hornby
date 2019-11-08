@@ -23516,6 +23516,26 @@ a:hover {
   outline: none;
 }
 
+.search-field-wrap {
+  position: relative;
+}
+
+.search-field-wrap::before {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  font-family: "Font Awesome 5 Pro";
+  font-size: 1.25rem;
+  font-weight: 900;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  content: '\f002';
+}
+
+.search-field-wrap input {
+  padding-left: 2.5rem;
+}
+
 .font-0 {
   font-size: 0;
 }
@@ -24385,7 +24405,7 @@ header nav a:active, header nav i:active {
 }
 
 @media (max-width: 767.98px) {
-  .nav-container .mobile-bg-overlay {
+  .nav-container .main-menu-bg-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -24437,7 +24457,8 @@ header nav a:active, header nav i:active {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-bottom: 0;
-  padding-left: 0;
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
   list-style: none;
 }
 
@@ -24497,15 +24518,6 @@ header nav a:active, header nav i:active {
 .nav-container .search-form {
   position: relative;
   margin-left: 2.2rem;
-  color: #434343;
-}
-
-.nav-container .search-form:hover::before {
-  color: #767676;
-}
-
-.nav-container .search-form:active::before {
-  color: #909090;
 }
 
 @media (max-width: 767.98px) {
@@ -24518,22 +24530,23 @@ header nav a:active, header nav i:active {
   }
 }
 
-.nav-container .search-form::before {
-  position: absolute;
-  top: 50%;
-  left: 0.5rem;
-  font-family: "Font Awesome 5 Pro";
-  font-size: 1.25rem;
-  font-weight: 900;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  content: '\f002';
+.nav-container .search-form .search-field-wrap::before {
+  color: #434343;
+}
+
+.nav-container .search-form .search-field-wrap:hover::before {
+  color: #767676;
+}
+
+.nav-container .search-form .search-field-wrap:active::before {
+  color: #909090;
 }
 
 .nav-container .search-form input {
   position: relative;
-  width: 2rem;
+  width: 2.75rem;
   height: 2.25rem;
+  padding: 0.375rem 0.75rem;
   border: none;
   border-radius: 50rem;
   background-color: transparent;
@@ -24547,7 +24560,7 @@ header nav a:active, header nav i:active {
 
 .nav-container .search-form input:focus {
   width: 12.5rem;
-  padding-left: 2rem;
+  padding-left: 2.5rem;
   border: 1px solid #ced4da;
   -webkit-box-shadow: none;
           box-shadow: none;
@@ -24593,26 +24606,26 @@ header nav a:active, header nav i:active {
   opacity: 0.5;
 }
 
-.nav-transparent .search-form {
+.nav-transparent .search-form .search-field-wrap::before {
   color: #fff;
 }
 
-.nav-transparent .search-form:hover::before {
+.nav-transparent .search-form .search-field-wrap:hover::before {
   color: #fff;
   opacity: 0.7;
 }
 
-.nav-transparent .search-form:active::before {
+.nav-transparent .search-form .search-field-wrap:active::before {
   color: #fff;
   opacity: 0.5;
 }
 
-.nav-transparent .search-form input {
+.nav-transparent .search-form .search-field-wrap input {
   color: #fff;
 }
 
 @media (max-width: 767.98px) {
-  .nav-transparent .search-form input:focus {
+  .nav-transparent .search-form .search-field-wrap input:focus {
     background-color: #8c8c8c;
   }
 }
@@ -24683,6 +24696,43 @@ footer .social-media a:not(:first-child) {
 
 footer .social-media a i {
   font-size: 2rem;
+}
+
+.widget {
+  margin-bottom: 4.5rem;
+}
+
+.widget .widget-title {
+  margin-bottom: 2rem;
+  color: #434343;
+  font-size: 1.375rem;
+  font-weight: 500;
+}
+
+.widget .search-field-wrap input {
+  background-color: whitesmoke;
+}
+
+.widget ul {
+  -webkit-padding-start: 0;
+          padding-inline-start: 0;
+  list-style: none;
+}
+
+.widget ul li {
+  margin-bottom: 1rem;
+}
+
+.widget ul li a {
+  color: #434343;
+}
+
+.widget ul li a:hover {
+  color: #767676;
+}
+
+.widget ul li a:active {
+  color: #909090;
 }
 
 /************************************
@@ -25211,6 +25261,10 @@ footer .social-media a i {
   margin-bottom: 4rem;
   padding-bottom: 3rem;
   border-bottom: solid 2px #CCCCCC;
+}
+
+.entry:last-child {
+  margin-bottom: 5rem;
 }
 
 .entry-thumbnail {

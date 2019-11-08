@@ -3,7 +3,13 @@
 ************************************/
 
 @mixin links($type: dark, $color: $dark-gray, $pseudo: null) {
-  color: $color;
+  @if $pseudo == null {
+    color: $color;
+  } @else if $pseudo != null {
+    &#{$pseudo} {
+      color: $color;
+    }
+  }
 
   @if $type == dark {
     &:hover#{$pseudo} {

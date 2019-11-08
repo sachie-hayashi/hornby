@@ -6,6 +6,10 @@
   margin-bottom: 4rem;
   padding-bottom: 3rem;
   border-bottom: solid 2px $silver;
+
+  &:last-child {
+    margin-bottom: 5rem;
+  }
 }
 
 .entry-thumbnail {
