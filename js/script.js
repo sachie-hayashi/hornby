@@ -5,20 +5,42 @@ $(function() {
 
   /* ---------------- Mobile slide navigagion ---------------- */
   
-  $('.nav-toggle, #main-menu-bg-overlay').click(function() {    
+  function toggleSlideNav() {
     $('#main-menu-bg-overlay').fadeToggle();
     $('#main-menu').addClass('nav-transition');
     $('#main-menu').toggleClass('nav-active');
     setTimeout(function() {
       $('#main-menu').removeClass('nav-transition');
-    }, 600);    
+    }, 600);
+  }
+  
+  $('.nav-toggle, #main-menu-bg-overlay').click(function() {
+    toggleSlideNav();
   });
+  
+  $('#nav-links > li > a').click(function() {
+    const $linkPath = this.pathname;
+    const $currentPath = window.location.pathname;
+    const $linkAnchor = this.hash;
+    if ($linkPath == $currentPath && $linkAnchor) {
+      toggleSlideNav();
+    }
+  });
+
+  // $('.nav-toggle, #main-menu-bg-overlay').click(function() {
+  //   $('#main-menu-bg-overlay').fadeToggle();
+  //   $('#main-menu').addClass('nav-transition');
+  //   $('#main-menu').toggleClass('nav-active');
+  //   setTimeout(function() {
+  //     $('#main-menu').removeClass('nav-transition');
+  //   }, 600);    
+  // });
 
   /* ---------------- Change navigation color on scroll ---------------- */
 
   const $nav = $("header nav");
   const $scrollPosition = $(document).scrollTop();
-  const $home = $('body').is('#home');
+  const $home = $('.main').is('#home');
 
   function changeNavColor() {
     $(document).scroll(function() {
