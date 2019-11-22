@@ -24,6 +24,13 @@ body {
   }
 }
 
+// Font-weight
+@each $font-weight in $font-weights {
+  .font-weight-#{$font-weight} {
+    font-weight: $font-weight;
+  }
+}
+
 /* --------------- Images --------------- */
 
 .img-cover {
@@ -80,11 +87,17 @@ a {
 }
 
 .btn-rounded-light-gray {
-  padding: 0 1.5rem;
+  padding: 0.125rem 1rem;
   @extend .btn, .btn-light-gray, .rounded-pill;
   @include links(light, $white);
   font-size: 1em;
   font-weight: 500;
+}
+
+.categories {
+  a {
+    @extend .btn-rounded-light-gray;
+  }
 }
 
 /* --------------- Input --------------- */
@@ -147,6 +160,16 @@ input, textarea {
     img {
       @include img-size();
     }
+
+    .no-img {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background-color: $light-gray;
+      color: $white;
+    }
   }
   
   .card-body {
@@ -172,11 +195,11 @@ input, textarea {
       justify-content: space-between;
       align-items: center;
 
-      .category {
+      .categories {
         .btn-rounded-light-gray {
           position: relative;
           z-index: 10;
-          padding: 0 1rem;
+          // padding: 0 1rem;
         }
       }
     }

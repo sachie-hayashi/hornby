@@ -212,7 +212,7 @@
                     <h3><a href="#">Arcu urna platea facilisis</a></h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</p>
                     <div class="card-entry-meta">
-                      <div class="category">
+                      <div class="categories">
                         <a href="#" class="btn-rounded-light-gray">Art</a>
                       </div>
                       <span class="posted-on">
@@ -235,7 +235,7 @@
                     <h3><a href="#">Ipsum sapien velit</a></h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</p>
                     <div class="card-entry-meta">
-                      <div class="category">
+                      <div class="categories">
                         <a href="#" class="btn-rounded-light-gray">Art</a>
                       </div>
                       <span class="posted-on">
@@ -258,7 +258,7 @@
                     <h3><a href="#">Quam sed justo primis</a></h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ...</p>
                     <div class="card-entry-meta">
-                      <div class="category">
+                      <div class="categories">
                         <a href="#" class="btn-rounded-light-gray">Art</a>
                       </div>
                       <span class="posted-on">
