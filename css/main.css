@@ -24389,6 +24389,10 @@ a:hover {
 }
 
 /* --------------- Sections --------------- */
+.page-wrap {
+  padding: 9.75rem 0 5.5rem;
+}
+
 .section-wrap {
   padding: 6.5rem 0;
 }
@@ -24406,6 +24410,11 @@ a:hover {
 
 .section-wrap-dark-hotpink h2 {
   font-size: 2.5rem;
+}
+
+.full-width {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
 /* --------------- Dividers --------------- */
@@ -25365,10 +25374,6 @@ footer .social-media a i {
 
 .contact-form .form-group {
   margin-bottom: 1.25rem;
-}
-
-.page-wrap {
-  padding: 9.75rem 0 5.5rem;
 }
 
 /* --------------- Blog main --------------- */

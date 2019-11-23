@@ -125,6 +125,10 @@ input, textarea {
 
 /* --------------- Sections --------------- */
 
+.page-wrap {
+  padding: 9.75rem 0 5.5rem;
+}
+
 .section-wrap {
   @include section-base();
 }
@@ -132,6 +136,12 @@ input, textarea {
 .section-wrap-dark-hotpink {
   @include section-base($white);
   background-color: $dark-hotpink;
+}
+
+// For full width unit inside a container aligned center
+.full-width {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
 }
 
 /* --------------- Dividers --------------- */
