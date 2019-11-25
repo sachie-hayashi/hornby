@@ -18,6 +18,7 @@ get_header();
   <div class="main page-wrap">
     <div class="container">
       <div class="content-area">
+
         <!-- Start of the Loop -->
         <?php
         while (have_posts()):
@@ -25,9 +26,9 @@ get_header();
 
           get_template_part('template-parts/content');
         ?>
-
         <!-- End of the Loop -->
         <?php endwhile; ?>
+        
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying content
+ * Template part for displaying content of single posts / pages
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -9,7 +9,16 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('entry'); ?>>
+<?php
+if (is_single()):
+  $post_class = 'entry';
+else:
+  $post_class = '';
+endif;
+?>
+<article id="post-<?php the_ID(); ?>" <?php post_class($post_class); ?>>
+
+  <!-- Post / page thumbnails -->
   <?php if (has_post_thumbnail()): ?>
     <div class="entry-thumbnail">
       <div class="inner">
@@ -21,21 +30,30 @@
       </div>                
     </div>
   <?php endif; ?>
+
+  <!-- Post / page titles -->
   <h1 class="entry-title"><?php the_title(); ?></h1>
-  <div class="entry-meta">
-    <span class="posted-on">
-      <time datetime="<?php the_time('Y-m-d') ?>"><?php the_time('M j, Y') ?></time>
-    </span>
-    <?php if (has_category()): ?>
-      <div class="categories">
-        <?php the_category(' '); ?>
-      </div>
-    <?php endif; ?>
-  </div>
+
+  <!-- Post dates & categories on single post pages -->
+  <?php if (is_single()): ?>
+    <div class="entry-meta">
+      <span class="posted-on">
+        <time datetime="<?php the_time('Y-m-d') ?>"><?php the_time('M j, Y'); ?></time>
+      </span>
+      <?php if (has_category()): ?>
+        <div class="categories">
+          <?php the_category(' '); ?>
+        </div>
+      <?php endif; ?>
+    </div>
+  <?php endif; ?>
+
+  <!-- Post / page contents -->
   <div class="entry-content">
     <?php
     the_content();
     wp_link_pages();
     ?>
   </div>
+
 </article>
