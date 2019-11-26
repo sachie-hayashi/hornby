@@ -17,11 +17,13 @@ get_header();
         <div class="col-md-8">
           <?php if (have_posts()): ?>
             <?php
+            // Start of the Loop
             while (have_posts()):
               the_post();
 
               get_template_part('template-parts/content', 'excerpt');
-
+              
+            // End of the Loop
             endwhile;
             ?>
           <?php endif; ?>
