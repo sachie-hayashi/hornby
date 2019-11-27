@@ -9319,7 +9319,7 @@ button.bg-whitesmoke:focus {
   height: 100vh !important;
 }
 
-.stretched-link::after, .read-more-link > i::after, .blog-card .card-body h3 a::after {
+.stretched-link::after, .read-more-link > i::after, .link-arrows > i::after, .blog-card .card-body h3 a::after {
   position: absolute;
   top: 0;
   right: 0;
@@ -24290,32 +24290,46 @@ a:hover {
   text-decoration: none;
 }
 
-.read-more-link {
+.read-more-link, .link-arrows {
   position: relative;
   font-size: 1.125rem;
   font-weight: 500;
   color: #434343;
 }
 
-.read-more-link:hover {
+.read-more-link:hover, .link-arrows:hover {
   color: #767676;
 }
 
-.read-more-link:active {
+.read-more-link:active, .link-arrows:active {
   color: #909090;
 }
 
-.read-more-link > i {
+.read-more-link > i, .link-arrows > i {
   margin-left: 0.25rem;
   color: #C94380;
 }
 
-.read-more-link > i:hover {
+.read-more-link > i:hover, .link-arrows > i:hover {
   color: #e092b6;
 }
 
-.read-more-link > i:active {
+.read-more-link > i:active, .link-arrows > i:active {
   color: #ebbad0;
+}
+
+.link-arrows {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #707070;
+}
+
+.link-arrows:hover {
+  color: #a3a3a3;
+}
+
+.link-arrows:active {
+  color: #bdbdbd;
 }
 
 .posted-on {
@@ -24386,6 +24400,7 @@ a:hover {
 
 .search-field-wrap input {
   padding-left: 2.5rem;
+  max-width: 18rem;
 }
 
 /* --------------- Sections --------------- */
@@ -24667,8 +24682,7 @@ header nav a:active, header nav i:active {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-bottom: 0;
-  -webkit-padding-start: 0;
-          padding-inline-start: 0;
+  padding-left: 0;
   list-style: none;
 }
 
@@ -24924,8 +24938,7 @@ footer .social-media a i {
 }
 
 .widget ul {
-  -webkit-padding-start: 0;
-          padding-inline-start: 0;
+  padding-left: 0;
   list-style: none;
 }
 

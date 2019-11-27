@@ -96,7 +96,7 @@ header nav {
       display: flex;
       flex-wrap: wrap;
       margin-bottom: 0;
-      padding-inline-start: 0;
+      padding-left: 0;
       list-style: none;
       @include media-breakpoint-down(sm) {
         flex-direction: column;
