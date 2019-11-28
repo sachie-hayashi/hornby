@@ -14,13 +14,13 @@ get_header();
 	<div class="container">
 		<div class="content-404 text-center">
 			<h1 class="font-650">404</h1>
-			<h2 class="mb-250"><?php esc_html_e('Page not found', 'hornby'); ?><i class="far fa-file-alt ml-50"></i></h2>
-			<p><?php esc_html_e('Try a search or one of the links below.', 'hornby') ?></p>
+			<h2 class="mb-250"><?php _e('Page not found', 'hornby'); ?><i class="far fa-file-alt ml-50"></i></h2>
+			<p><?php _e('Sorry, the page you are looking for cannot be found. Try a search.', 'hornby') ?></p>
 			<?php get_search_form(); ?>
-			<ul class="list-unstyled mt-75">
+			<!-- <ul class="list-unstyled mt-75">
 				<li><a href="javascript:history.back()" class="link-arrows">Go Back<i class="fas fa-angle-double-right" aria-hidden="true"></i></a></li>
 				<li><a href="<?php echo esc_url(home_url()); ?>" class="link-arrows">Go to Homepage<i class="fas fa-angle-double-right" aria-hidden="true"></i></a></li>
-			</ul>
+			</ul> -->
 		</div>
 	</div>
 </div>

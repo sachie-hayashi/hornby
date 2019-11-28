@@ -113,6 +113,16 @@ input, textarea {
   @extend .form-control;
 }
 
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.content-404 .search-form {
+  justify-content: center;
+}
+
 .search-field-wrap {
   position: relative;
 
@@ -129,6 +139,13 @@ input, textarea {
     padding-left: 2.5rem;
     max-width: 18rem;
   }
+}
+
+.search-submit {
+  @extend .btn, .btn-dark-hotpink;
+  width: auto;
+  margin-top: 0.25rem;
+  margin-left: 0.25rem;
 }
 
 /* --------------- Sections --------------- */
