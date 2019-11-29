@@ -61,7 +61,7 @@
   .card-body {
     h3 {
       min-height: calc(1.25rem * 1.2 * 2); //font-size * line-height * number of lines
-      line-height: calc(1.25rem * 1.2);
+      line-height: 1.2;
     }
   }  
 }

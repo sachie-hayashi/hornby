@@ -24585,6 +24585,8 @@ a:hover {
 }
 
 .blog-card .card-body p {
+  min-height: calc(1rem * 1.5 * 3);
+  line-height: 1.5;
   margin-bottom: 1.25rem;
 }
 
@@ -24829,7 +24831,7 @@ header nav a:active, header nav i:active {
   color: #909090;
 }
 
-.nav-container .search-form input {
+.nav-container .search-form .search-field-wrap input {
   position: relative;
   width: 2.75rem;
   height: 2.25rem;
@@ -24841,11 +24843,27 @@ header nav a:active, header nav i:active {
   transition: .5s;
 }
 
-.nav-container .search-form input:hover {
+.nav-container .search-form .search-field-wrap input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.nav-container .search-form .search-field-wrap input:-ms-input-placeholder {
+  color: transparent;
+}
+
+.nav-container .search-form .search-field-wrap input::-ms-input-placeholder {
+  color: transparent;
+}
+
+.nav-container .search-form .search-field-wrap input::placeholder {
+  color: transparent;
+}
+
+.nav-container .search-form .search-field-wrap input:hover {
   cursor: pointer;
 }
 
-.nav-container .search-form input:focus {
+.nav-container .search-form .search-field-wrap input:focus {
   width: 12.5rem;
   padding-left: 2.5rem;
   border: 1px solid #ced4da;
@@ -24854,11 +24872,31 @@ header nav a:active, header nav i:active {
 }
 
 @media (max-width: 767.98px) {
-  .nav-container .search-form input:focus {
+  .nav-container .search-form .search-field-wrap input:focus {
     z-index: -10;
     width: 14rem !important;
     background-color: whitesmoke;
   }
+}
+
+.nav-container .search-form .search-field-wrap input:focus::-webkit-input-placeholder {
+  color: #707070;
+}
+
+.nav-container .search-form .search-field-wrap input:focus:-ms-input-placeholder {
+  color: #707070;
+}
+
+.nav-container .search-form .search-field-wrap input:focus::-ms-input-placeholder {
+  color: #707070;
+}
+
+.nav-container .search-form .search-field-wrap input:focus::placeholder {
+  color: #707070;
+}
+
+.nav-container .search-form .search-submit {
+  display: none;
 }
 
 .nav-container .nav-active {
@@ -24915,6 +24953,22 @@ header nav a:active, header nav i:active {
   .nav-transparent .search-form .search-field-wrap input:focus {
     background-color: #8c8c8c;
   }
+}
+
+.nav-transparent .search-form .search-field-wrap input:focus::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.nav-transparent .search-form .search-field-wrap input:focus:-ms-input-placeholder {
+  color: #fff;
+}
+
+.nav-transparent .search-form .search-field-wrap input:focus::-ms-input-placeholder {
+  color: #fff;
+}
+
+.nav-transparent .search-form .search-field-wrap input:focus::placeholder {
+  color: #fff;
 }
 
 /************************************
@@ -25549,6 +25603,6 @@ footer .social-media a i {
 
 .related-post-card .card-body h3 {
   min-height: calc(1.25rem * 1.2 * 2);
-  line-height: calc(1.25rem * 1.2);
+  line-height: 1.2;
 }
 /*# sourceMappingURL=main.css.map */

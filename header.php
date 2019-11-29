@@ -49,11 +49,7 @@
                 <a href="#"><i class="fab fa-twitter social-icon"></i></a>
               </div>
             </div>
-            <form action="" class="search-form">
-              <div class="search-field-wrap">
-                <input type="text" name="" id="">
-              </div>
-            </form>
+            <?php get_search_form(); ?>
           </div>
         </div>  
       </nav>

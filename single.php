@@ -14,8 +14,8 @@ get_header();
       <div class="container">
         <div class="row">
           <div class="col-md-8">
-            <!-- Start of the Loop -->
             <?php
+            // Start of the Loop
             while (have_posts()):
               the_post();
             ?>
@@ -41,62 +41,28 @@ get_header();
                   <h2 class="text-dark-gray font-175">Related Posts</h2>
                   <span class="separator"></span>
                   <div class="row">
-                    <!-- Start of WP_Query Loop -->
+
                     <?php
+                    // Start of WP_Query Loop
                     while ($related_posts->have_posts()):
                       $related_posts->the_post();
+
+                      set_query_var('cat_id', $cat_id);
+                      get_template_part('template-parts/content', 'card');                      
+
+                    // End of WP_Query Loop
+                    endwhile;
                     ?>
-                      <div class="col-sm-6 col-lg-4">
-                        <div id="post-<?php the_ID(); ?>" <?php post_class('blog-card related-post-card'); ?>>
-                          <div class="card-img">
-                            <div class="inner">
-                              <?php
-                              if (has_post_thumbnail()):
-                                the_post_thumbnail('post_thumbnail', array(
-                                  'class' => '',
-                                  'alt' => the_title_attribute('echo=0'),
-                                  'title' => the_title_attribute('echo=0')
-                                ));
-                              else:
-                              ?>
-                                <div class="no-img">
-                                  <i class="fas fa-camera font-375"></i>
-                                  <span class="font-100 font-weight-500">No image available</span>
-                                </div>
-                              <?php endif; ?>
-                            </div>
-                          </div>
-                          <div class="card-body">
-                            <h3><a href="<?php the_permalink(); ?>"><?php echo wp_trim_words(get_the_title(), 5) ?></a></h3>
-                            <div class="card-entry-meta">
-                              <?php
-                              if (has_category($cat_id)):
-                                $cat_link = get_category_link($cat_id);
-                                $cat_name = $categories[0]->name;
-                              ?>
-                                <div class="categories">
-                                  <a href="<?php echo esc_url($cat_link); ?>" class="btn-rounded-light-gray"><?php echo esc_html($cat_name); ?></a>
-                                </div>
-                              <?php endif; ?>
-                              <span class="posted-on">
-                                <a href="<?php the_permalink(); ?>">
-                                  <time datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('M j, Y'); ?></time>
-                                </a>
-                              </span>                      
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    <!-- End of WP_Query Loop -->
-                    <?php endwhile; ?>
+
                   </div>
                 </div>
               <?php
               endif;
               wp_reset_postdata();
-              ?>
-            <!-- End of the Loop -->
-            <?php endwhile; ?>
+
+            // End of the Loop
+            endwhile;
+            ?>
           </div>
           <!-- -------------------- Sidebar -------------------- -->
           <aside class="col-md-4">

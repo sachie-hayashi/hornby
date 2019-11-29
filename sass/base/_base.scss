@@ -113,6 +113,7 @@ input, textarea {
   @extend .form-control;
 }
 
+
 .search-form {
   display: flex;
   flex-wrap: wrap;
@@ -222,6 +223,8 @@ input, textarea {
     }
 
     p {
+      min-height: calc(1rem * 1.5 * 3); //font-size * line-height * number of lines
+      line-height: 1.5;
       margin-bottom: 1.25rem;
     }
 

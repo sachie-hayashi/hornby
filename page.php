@@ -19,15 +19,16 @@ get_header();
     <div class="container">
       <div class="content-area">
 
-        <!-- Start of the Loop -->
         <?php
+        // Start of the Loop
         while (have_posts()):
           the_post();
 
           get_template_part('template-parts/content');
+
+        // End of the Loop
+        endwhile;
         ?>
-        <!-- End of the Loop -->
-        <?php endwhile; ?>
         
       </div>
     </div>
