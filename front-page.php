@@ -195,12 +195,14 @@
         </div>
       </section>
       <!-- -------------------- Latest news -------------------- -->
-      <?php 
+      <?php
       $args = array(
         'post_type' => 'post',
-        'posts_per_page' => 3
+        'posts_per_page' => 3,
+        'category__not_in' => array(get_cat_ID('work'))
       );
       $latest_news = new WP_Query($args);
+      
       if ($latest_news->have_posts()):
       ?>
         <section>

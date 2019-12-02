@@ -10,10 +10,10 @@
 ?>
 
 <?php
-if (is_single()):
-  $post_class = 'entry';
-else:
+if (is_page()):
   $post_class = '';
+else:
+  $post_class = 'entry';
 endif;
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class($post_class); ?>>

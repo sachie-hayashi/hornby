@@ -27,14 +27,15 @@ get_header();
               <?php
               $post_id = get_the_ID();
               $categories = get_the_category();
-              $cat_id = $categories[0]->cat_ID;              
-              $related_posts = new WP_Query(
-                array(
-                  'posts_per_page' => 3,
-                  'cat' => $cat_id,
-                  'post__not_in' => array($post_id)
-                )
+              $cat_id = $categories[0]->cat_ID;
+              
+              $args = array(
+                'posts_per_page' => 3,
+                'cat' => $cat_id,
+                'post__not_in' => array($post_id)
               );
+              $related_posts = new WP_Query($args);
+
               if ($related_posts->have_posts()):
               ?>
                 <div class="related-posts">

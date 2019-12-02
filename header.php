@@ -37,7 +37,8 @@
                   <a href="<?php echo esc_url(home_url('#services')); ?>"><i class="material-icons">build</i>Services</a>
                 </li>
                 <li>
-                  <a href="<?php echo esc_url(home_url('/blog')); ?>"><i class="material-icons">speaker_notes</i>Blog</a>
+                  <!-- <a href="<?php echo esc_url(home_url('/blog')); ?>"><i class="material-icons">speaker_notes</i>Blog</a> -->
+                  <a href="<?php echo esc_url(get_post_type_archive_link('post')); ?>"><i class="material-icons">speaker_notes</i>Blog</a>
                 </li>
                 <li>
                   <a href="<?php echo esc_url(home_url('#contact')); ?>"><i class="material-icons">email</i>Contact</a>

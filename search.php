@@ -15,8 +15,9 @@ get_header();
     <div class="row">
       <!-- -------------------- search results -------------------- -->
       <div class="col-md-8">
-        <?php
-        if (have_posts()):
+        <?php if (have_posts()): ?>
+          <h1 class="page-title"><?php _e('Search results for: ', 'hornby'); ?><?php echo get_search_query(); ?></h1>
+          <?php
           // Start of the Loop
           while (have_posts()):
             the_post();

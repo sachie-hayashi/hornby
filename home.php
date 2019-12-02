@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The template for displaying the blog posts index
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -16,7 +16,7 @@ get_header();
         <!-- -------------------- Blog listing -------------------- -->
         <div class="col-md-8">
           <?php if (have_posts()): ?>
-            <h1 class="page-title"><?php the_archive_title(); ?></h1>
+            <h1 class="sr-only"><?php single_post_title(); ?></h1>
             <?php
             // Start of the Loop
             while (have_posts()):

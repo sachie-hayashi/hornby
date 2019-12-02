@@ -11,11 +11,11 @@
 
 <section>
   <div class="no-results not-found mb-400">
-    <h1 class="mb-150 text-dark-gray"><?php _e('Nothing Found', 'hornby'); ?></h1>
+    <h1 class="page-title"><?php _e('Nothing Found', 'hornby'); ?></h1>
     <?php if (is_search()): ?>
-      <p class="mb-125"><?php _e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'hornby') ?></p>
+      <p class="mb-150"><?php _e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'hornby') ?></p>
     <?php else: ?>
-      <p class="mb-125"><?php _e('Sorry, it seems we can&rsquo;t find what you are looking for. Perhaps searching can help.', 'hornby') ?></p>
+      <p class="mb-150"><?php _e('Sorry, it seems we can&rsquo;t find what you are looking for. Perhaps searching can help.', 'hornby') ?></p>
     <?php endif; ?>
     <?php get_search_form(); ?>
   </div>
