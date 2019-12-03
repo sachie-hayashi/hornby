@@ -26,6 +26,11 @@ get_header();
               
             // End of the Loop
             endwhile;
+
+            // Numbered Pagination
+            get_template_part('template-parts/pagination');
+
+          // If no content, include the "No posts found" template.
           else:
 
             get_template_part('template-parts/content', 'none');
