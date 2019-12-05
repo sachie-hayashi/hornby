@@ -130,32 +130,34 @@
     > [class*="col"] {
       @include aspect-ratio(4, 3);
 
-      .inner {
-        a {
-          color: $white;
-          
-          &::before {
+      .inner {       
+        a {          
+          .img-overlay {
             @include position(absolute, 0, 0, 0, 0);
-            display: flex;
-            align-items: flex-end;
-            padding: 1.25rem;
-            font-size: 1.375rem;
-            transition: .5s;
-            content: '';
-          }
-          
-          &:hover::before {
             background-color: rgba(0, 0, 0, 0.45);
-            color: $white;
-            content: 'Project title';
+            opacity: 0;
+            transition: 0.5s;
+
+            &:hover {
+              opacity: 1;
+            }
+
+            h3 {
+              @include position(absolute, $left: 0, $bottom: 0);
+              margin: 1.25rem 0.5rem;
+              color: $white;
+              font-size: 1.375rem;
+              font-weight: 400;
+              text-align: left;
+            }
           }
-        }
+
+          img {
+            @include img-size();
+          }
+        }        
       }
-    }
-  
-    img {
-      @include img-size();
-    }
+    }  
   }
 }
 
@@ -184,16 +186,49 @@
         
         .progress-bar {
           position: relative;
+          width: 0;
           border-radius: 0.25rem 0 0 0.25rem;
           background-color: $dark-hotpink;
-      
+          // transition: none !important;
+          
           .progress-percentage {
+            // display: none;
             @include position(absolute, $right: 0);
             @extend .progress-title;
             font-size: 1rem;
             transform: translateY(-100%);
+            // transition: none !important;
+            opacity: 0;
           }
-        }  
+        }
+      }
+      
+      .progress-animation {
+        .progress-bar {
+          animation: progressBar 1.4s ease-in-out forwards;
+        }
+
+        .progress-percentage {
+          animation: progressPercentage 0.7s ease-in-out 0.7s forwards;
+        }
+      }
+        
+      @keyframes progressBar {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes progressPercentage {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
       }
     }
     

@@ -3,7 +3,7 @@
 
 $(function() {
 
-  /* ---------------- Mobile slide navigagion ---------------- */
+  /* ---------------- Toggle mobile slide navigagion ---------------- */
   
   function toggleSlideNav() {
     $('#main-menu-bg-overlay').fadeToggle();
@@ -27,19 +27,13 @@ $(function() {
     }
   });
 
-  // $('.nav-toggle, #main-menu-bg-overlay').click(function() {
-  //   $('#main-menu-bg-overlay').fadeToggle();
-  //   $('#main-menu').addClass('nav-transition');
-  //   $('#main-menu').toggleClass('nav-active');
-  //   setTimeout(function() {
-  //     $('#main-menu').removeClass('nav-transition');
-  //   }, 600);    
-  // });
-
-  /* ---------------- Change navigation color on scroll ---------------- */
+  /* ---------------- Change styles on scroll ---------------- */
 
   const $nav = $("header nav");
-  const $scrollPosition = $(document).scrollTop();
+
+  // ----- Navigation color ----- //
+
+  const $scrollPosition = $(window).scrollTop();  
   const $home = $('.main').is('#home');
 
   function changeNavColor() {
@@ -56,6 +50,27 @@ $(function() {
   } else {
     changeNavColor();
   }
+
+  // ----- Progress bar animation ----- //
+
+  function animateProgressBar() {
+    $('.progress').each(function() {
+      const $viewTop = $(window).scrollTop() + $nav.height();
+      const $viewBottom = $(window).scrollTop() + $(window).height();
+      const $progressBarTop = $(this).offset().top;
+      const $progressBarBottom = $progressBarTop + $(this).height();
+  
+      if ($progressBarTop > $viewTop && $progressBarBottom < $viewBottom) {
+        $(this).addClass('progress-animation');
+      } else {
+        $(this).removeClass('progress-animation');        
+      }
+    });
+  }
+  // Execute on load
+  animateProgressBar();
+  // Bind event listener
+  $(document).scroll(animateProgressBar);
 
   /* ---------------- Change padding for responsive cards ---------------- */
 
@@ -74,11 +89,10 @@ $(function() {
   // Bind event listener
   $(window).resize(changeCardPadding);
 
-  /* ---------------- Video modal popup ---------------- */
+  /* ---------------- Toggle video modal popup ---------------- */
   
   $('.video-modal-toggle').click(function() {
     $('#video-modal').fadeToggle();
   });
-
   
 });

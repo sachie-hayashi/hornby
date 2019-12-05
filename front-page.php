@@ -110,45 +110,63 @@
         </div>
       </section>
       <!-- -------------------- Work -------------------- -->
-      <section>
-        <div class="work section-wrap pb-0 text-center">
-          <div class="contaier-fluid">
-            <h2>Our work</h2>
-            <span class="separator"></span>
-            <p class="mb-275">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-            <div class="row no-gutters">
-              <div class="col-sm-6 col-md">
-                <div class="inner">
-                  <a href="<?php echo esc_url(get_template_directory_uri()); ?>/img/works1_aquarium-architectural-design-architecture-2659578.jpg">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/works1_aquarium-architectural-design-architecture-2659578.jpg" alt="aquarium architectural design">
-                  </a>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md">
-                <div class="inner">
-                  <a href="<?php echo esc_url(get_template_directory_uri()); ?>/img/works2_workplace-2303851_1920.jpg">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/works2_workplace-2303851_1920.jpg" alt="workplace">
-                  </a>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md">
-                <div class="inner">
-                  <a href="<?php echo esc_url(get_template_directory_uri()); ?>/img/works3_art-artistic-beautiful-311458.jpg">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/works3_art-artistic-beautiful-311458.jpg" alt="colorful houseplants">
-                  </a>
-                </div>
-              </div>
-              <div class="col-sm-6 col-md">
-                <div class="inner">
-                  <a href="<?php echo esc_url(get_template_directory_uri()); ?>/img/works4_architectural-design-architecture-building-2290609.jpg">
-                    <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/works4_architectural-design-architecture-building-2290609.jpg" alt="building architectural design">                  
-                  </a>
-                </div>
+      <?php
+      $work_args = array(
+        // 'post_type' => 'post',
+        'category_name' => 'work',
+        'posts_per_page' => 4
+      );
+      $work = new WP_Query($work_args);
+
+      if ($work->have_posts()):
+      ?>
+        <section>
+          <div class="work section-wrap pb-0 text-center">
+            <div class="contaier-fluid">
+              <h2>Our work</h2>
+              <span class="separator"></span>
+              <p class="mb-275">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+              <div class="row no-gutters">
+
+                <?php
+                // Start of WP_Query Loop
+                while ($work->have_posts()):
+                  $work->the_post();
+                ?>
+                  <div id="post-<?php the_ID(); ?>" <?php post_class('col-sm-6 col-md-3'); ?>>
+                    <div class="inner">
+                      <a href="<?php the_permalink(); ?>">
+                        <div class="img-overlay">
+                          <h3><?php echo wp_trim_words(get_the_title(), 5); ?></h3>
+                        </div>
+                        <?php
+                        if (has_post_thumbnail()):
+                          the_post_thumbnail('post-thumbnail', array(
+                            'title' => the_title_attribute('echo=0')
+                          ));
+                        else:
+                        ?>
+                          <div class="no-img">
+                            <i class="fas fa-camera font-375"></i>
+                            <span class="font-100 font-weight-500">No image available</span>
+                          </div>
+                        <?php endif; ?>                                          
+                      </a>
+                    </div>
+                  </div>
+                <?php
+                // End of WP_Query Loop
+                endwhile;
+                ?>
+                
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      <?php
+      endif;
+      wp_reset_postdata();
+      ?>
       <!-- -------------------- Skills -------------------- -->
       <section>
         <div class="skills section-wrap">
@@ -161,8 +179,14 @@
                 <!-- ---------- Skill chart ---------- -->
                 <div class="progress-item">
                   <span class="progress-title">Design</span>
-                  <div class="progress">
+                  <!-- <div class="progress">
                     <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90%" aria-valuemin="0" aria-valuemax="100">
+                      <div class="progress-status"></div>
+                      <span class="progress-percentage">90%</span>
+                    </div>
+                  </div> -->
+                  <div class="progress">
+                    <div class="progress-bar" role="progressbar" style="max-width: 90%;" aria-valuenow="90%" aria-valuemin="0" aria-valuemax="100">
                       <span class="progress-percentage">90%</span>
                     </div>
                   </div>
@@ -170,7 +194,7 @@
                 <div class="progress-item">
                   <span class="progress-title">Development</span>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 80%;" aria-valuenow="80%" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" role="progressbar" style="max-width: 80%;" aria-valuenow="80%" aria-valuemin="0" aria-valuemax="100">
                       <span class="progress-percentage">80%</span>
                     </div>
                   </div>
@@ -178,7 +202,7 @@
                 <div class="progress-item">
                   <span class="progress-title">Photography</span>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85%" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" role="progressbar" style="max-width: 85%;" aria-valuenow="85%" aria-valuemin="0" aria-valuemax="100">
                       <span class="progress-percentage">85%</span>
                     </div>
                   </div>
@@ -196,12 +220,12 @@
       </section>
       <!-- -------------------- Latest news -------------------- -->
       <?php
-      $args = array(
+      $news_args = array(
         'post_type' => 'post',
         'posts_per_page' => 3,
         'category__not_in' => array(get_cat_ID('work'))
       );
-      $latest_news = new WP_Query($args);
+      $latest_news = new WP_Query($news_args);
       
       if ($latest_news->have_posts()):
       ?>
