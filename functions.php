@@ -42,10 +42,22 @@ if ( ! function_exists( 'hornby_setup' ) ) :
 		 */
 		add_theme_support( 'post-thumbnails' );
 
+		/**
+		 * Register navigation menus uses wp_nav_menu
+		 */
+		function hornby_nav_menus() {
+			register_nav_menus(
+				array(
+					'header-menu' => __('Header Menu', 'hornby')
+				)
+			);
+		}
+		add_action('init', 'hornby_nav_menus');
+
 		// This theme uses wp_nav_menu() in one location.
-		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'hornby' ),
-		) );
+		// register_nav_menus( array(
+		// 	'menu-1' => esc_html__( 'Primary', 'hornby' ),
+		// ) );
 
 		/*
 		 * Switch default core markup for search form, comment form, and comments

@@ -29,21 +29,16 @@
                   <i class="fas fa-times toggle-icon"></i>
                 </button>
               </div>
-              <ul id="nav-links">
-                <li>
-                  <a href="<?php echo esc_url(home_url()); ?>"><i class="material-icons">home</i>Home</a>
-                </li>
-                <li>                
-                  <a href="<?php echo esc_url(home_url('#services')); ?>"><i class="material-icons">build</i>Services</a>
-                </li>
-                <li>
-                  <!-- <a href="<?php echo esc_url(home_url('/blog')); ?>"><i class="material-icons">speaker_notes</i>Blog</a> -->
-                  <a href="<?php echo esc_url(get_post_type_archive_link('post')); ?>"><i class="material-icons">speaker_notes</i>Blog</a>
-                </li>
-                <li>
-                  <a href="<?php echo esc_url(home_url('#contact')); ?>"><i class="material-icons">email</i>Contact</a>
-                </li>
-              </ul>
+              <?php
+              wp_nav_menu(
+                array(
+                  'theme_location' => 'header-menu',
+                  'menu_id' => 'nav-links',
+                  'container' => false,
+                  'link_before' => '<i class="material-icons"></i>'
+                )
+              );
+              ?>
               <div class="mobile-nav-bottom d-md-none">
                 <a href="#"><i class="fab fa-facebook-f social-icon"></i></a>
                 <a href="#"><i class="fab fa-instagram social-icon"></i></a>

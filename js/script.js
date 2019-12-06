@@ -2,6 +2,9 @@
 
 
 $(function() {
+  
+  const $nav = $("header nav");
+  const $navLink =  $('#nav-links > li > a');
 
   /* ---------------- Toggle mobile slide navigagion ---------------- */
   
@@ -18,7 +21,7 @@ $(function() {
     toggleSlideNav();
   });
   
-  $('#nav-links > li > a').click(function() {
+  $navLink.click(function() {
     const $linkPath = this.pathname;
     const $currentPath = window.location.pathname;
     const $linkAnchor = this.hash;
@@ -27,11 +30,8 @@ $(function() {
     }
   });
 
-  /* ---------------- Change styles on scroll ---------------- */
+  /* ---------------- Navigation color ---------------- */
 
-  const $nav = $("header nav");
-
-  // ----- Navigation color ----- //
 
   const $scrollPosition = $(window).scrollTop();  
   const $home = $('.main').is('#home');
@@ -51,8 +51,52 @@ $(function() {
     changeNavColor();
   }
 
-  // ----- Progress bar animation ----- //
-
+  
+  /* ---------------- Set google material icons on mobile slide nav ---------------- */
+   
+  $navLink.each(function(){
+    const $link = $(this);
+    const $linkLabel = $(this).text();
+    const $navIcons = {
+      // link labels: material icon names
+      Home: 'home',
+      Services: 'build',
+      Blog: 'speaker_notes',
+      Contact: 'email'
+    }
+    
+    $.each($navIcons, function($label, $icon) {
+      if ($linkLabel == $label) {
+        $link.children('.material-icons').text($icon);
+      }
+    });
+  });  
+  
+  /* ---------------- Change padding for responsive cards ---------------- */
+  
+  const $cardBody = $('.blog-card .card-body');
+  
+  function changeCardPadding() {
+    const $cardWidth = $cardBody.outerWidth();
+    if ($cardWidth >= 340) {
+      $cardBody.css('padding', '12%');
+    } else {
+      $cardBody.css('padding', '');
+    }
+  }  
+  // Execute on load
+  changeCardPadding();
+  // Bind event listener
+  $(window).resize(changeCardPadding);
+  
+  /* ---------------- Toggle video modal popup ---------------- */
+  
+  $('.video-modal-toggle').click(function() {
+    $('#video-modal').fadeToggle();
+  });  
+  
+  /* ---------------- Animate Progress bar ---------------- */
+  
   function animateProgressBar() {
     $('.progress').each(function() {
       const $viewTop = $(window).scrollTop() + $nav.height();
@@ -72,27 +116,5 @@ $(function() {
   // Bind event listener
   $(document).scroll(animateProgressBar);
 
-  /* ---------------- Change padding for responsive cards ---------------- */
 
-  const $cardBody = $('.blog-card .card-body');
-
-  function changeCardPadding() {
-    const $cardWidth = $cardBody.outerWidth();
-    if ($cardWidth >= 340) {
-      $cardBody.css('padding', '12%');
-    } else {
-      $cardBody.css('padding', '');
-    }
-  }  
-  // Execute on load
-  changeCardPadding();
-  // Bind event listener
-  $(window).resize(changeCardPadding);
-
-  /* ---------------- Toggle video modal popup ---------------- */
-  
-  $('.video-modal-toggle').click(function() {
-    $('#video-modal').fadeToggle();
-  });
-  
 });

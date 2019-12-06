@@ -179,12 +179,6 @@
                 <!-- ---------- Skill chart ---------- -->
                 <div class="progress-item">
                   <span class="progress-title">Design</span>
-                  <!-- <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="width: 90%;" aria-valuenow="90%" aria-valuemin="0" aria-valuemax="100">
-                      <div class="progress-status"></div>
-                      <span class="progress-percentage">90%</span>
-                    </div>
-                  </div> -->
                   <div class="progress">
                     <div class="progress-bar" role="progressbar" style="max-width: 90%;" aria-valuenow="90%" aria-valuemin="0" aria-valuemax="100">
                       <span class="progress-percentage">90%</span>
