@@ -32,7 +32,6 @@ $(function() {
 
   /* ---------------- Navigation color ---------------- */
 
-
   const $scrollPosition = $(window).scrollTop();  
   const $home = $('.main').is('#home');
 
@@ -50,7 +49,6 @@ $(function() {
   } else {
     changeNavColor();
   }
-
   
   /* ---------------- Set google material icons on mobile slide nav ---------------- */
    
