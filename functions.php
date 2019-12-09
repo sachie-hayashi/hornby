@@ -142,14 +142,34 @@ add_action( 'widgets_init', 'hornby_widgets_init' );
  */
 function hornby_scripts() {
 
+	// Enqueue normalize.min.css
+	wp_enqueue_style( 'normalize-style', 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css', array(), '8.0.1' );
+
 	// Enqueue bootstrap.min.css
 	wp_enqueue_style( 'bootstrap-style', get_template_directory_uri() . '/node_modules/bootstrap/dist/css/bootstrap.min.css', array(), '4.3.1' );
 	
 	// Enqueue main.css
 	wp_enqueue_style( 'hornby-style', get_template_directory_uri() . '/css/main.css', array(), '1.0' );
 	
+	// Enqueue google fonts
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700|Noto+Sans:400,700&display=swap', array(), '1.0' );
+
+	// Enqueue google material icons
+	wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/icon?family=Material+Icons', array(), '1.0' );
+
 	// Enqueue style.css (in the root directory of the theme)
 	wp_enqueue_style( 'wp-style', get_stylesheet_uri(), array(), '1.0' );
+
+	// Enqueue font awesome
+	wp_enqueue_script( 'font-awesome', 'https://kit.fontawesome.com/e73c9f8b45.js', array(), '5.11.2', );
+	// Add a crossorigin attribute on font awesome script tags
+	function add_crossorigin_to_script($tag, $handle, $src) {
+		if ($handle == 'font-awesome') {
+			$tag = '<script type="text/javascript" src="' . $src . '" crossorigin="anonymous"></script>';
+		}
+		return $tag;
+	}
+	add_filter('script_loader_tag', 'add_crossorigin_to_script', 10, 3);
 
 	// Enqueue jQuery
 	wp_deregister_script( 'jquery' );  // Remove default WordPress jQuery
@@ -170,6 +190,7 @@ function hornby_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'hornby_scripts' );
+
 
 /**
  * Implement the Custom Header feature.
