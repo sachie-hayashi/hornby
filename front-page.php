@@ -109,7 +109,7 @@
                     <div class="col-md-4 service-wrap">
                       <i class="material-icons"><?php echo $icon_name; ?></i>
                       <h3><?php the_title(); ?></h3>
-                      <p><?php echo wp_trim_words(get_the_content(), 16); ?></p>
+                      <p><?php echo wp_trim_words(get_the_content(), 17); ?></p>
                       <a href="#" class="read-more-link">Read More<i class="fas fa-angle-double-right"></i></a>
                     </div>
 

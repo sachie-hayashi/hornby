@@ -6,8 +6,9 @@
 
 @import "layout/header";
 @import "layout/footer";
+@import "layout/blog"; //blog posts, pages, archives, .etc
 @import "layout/sidebar";
+@import "layout/forms";
 @import "layout/modal";
 
 @import "pages/home";
-@import "pages/archive_single";

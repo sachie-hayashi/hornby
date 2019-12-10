@@ -1,0 +1,92 @@
+/* ------------------ Input ------------------ */
+
+input, textarea {
+  @extend .form-control;
+}
+
+/* --------------- Search form --------------- */
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.content-404 .search-form {
+  justify-content: center;
+}
+
+.search-field-wrap {
+  position: relative;
+
+  &::before {
+    @include position(absolute, 50%, 0.75rem);
+    font-family: "Font Awesome 5 Pro";
+    font-size: 1.25rem;
+    font-weight: 900;
+    transform: translateY(-50%);
+    content: '\f002';
+  }
+
+  input {
+    padding-left: 2.5rem;
+    max-width: 18rem;
+  }
+}
+
+.search-submit {
+  @extend .btn, .btn-dark-hotpink;
+  width: auto;
+  margin-top: 0.25rem;
+  margin-left: 0.25rem;
+}
+
+/* ------------- Newsletter form -------------- */
+
+.newsletter {
+  form {
+    position: relative;
+    @include media-breakpoint-up(md) {
+      width: 75%;
+      max-width: 32rem;
+      margin: 0 auto;
+    }
+
+    .btn {
+      @include media-breakpoint-down(xs) {
+        padding: 0.375rem 0.75rem;
+      }
+    }
+
+    .btn-gradient-pink {
+      @include position(absolute, $top: 50%, $right: 0.25rem);
+      border: none;
+      background-image: $gradient-pink;
+      color: $white;
+      line-height: 1.4;
+      transform: translateY(-50%);
+
+      &:hover {
+        background-image: linear-gradient(darken($soft-marigold, 7.5%), darken($dark-hotpink, 7.5%));
+      }
+
+      &:active {
+        background-image: linear-gradient(darken($soft-marigold, 10%), darken($dark-hotpink, 10%));
+      }
+    }
+  }
+}
+
+/* --------------- Contact form --------------- */
+
+.contact-form {
+  margin: 0 auto;
+  max-width: 28rem;
+  @include media-breakpoint-up(md) {
+    margin-left: auto;
+  }
+  
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+}
