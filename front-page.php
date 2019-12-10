@@ -86,24 +86,41 @@
             <h2>Our services</h2>
             <span class="separator"></span>
             <div class="row mb-md-375">
-              <div class="col-md service-wrap">
-                <i class="material-icons">view_list</i>
-                <h3>Branding</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore ...</p>
-                <a href="#" class="read-more-link">Read More<i class="fas fa-angle-double-right"></i></a>
-              </div>
-              <div class="col-md service-wrap">
-                <i class="material-icons">perm_data_setting</i>
-                <h3>Development</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore ...</p>
-                <a href="#" class="read-more-link">Read More<i class="fas fa-angle-double-right"></i></a>
-              </div>
-              <div class="col-md service-wrap">
-                <i class="material-icons">transform</i>
-                <h3>Marketing</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore ...</p>
-                <a href="#" class="read-more-link">Read More<i class="fas fa-angle-double-right"></i></a>
-              </div>
+
+              <?php
+              $page_slugs = array(
+                // page slugs => material icon names
+                'branding' => 'view_list',
+                'Development' => 'perm_data_setting',
+                'marketing' => 'transform'
+              );
+              foreach ($page_slugs as $page_slug => $icon_name ):
+                $service_args = array(
+                  'pagename' => 'services/' . $page_slug
+                );
+                $service = new WP_Query($service_args);
+
+                if ($service->have_posts()):
+                  // Start of WP_Query Loop   
+                  while ($service->have_posts()):
+                    $service->the_post();
+                  ?>
+
+                    <div class="col-md-4 service-wrap">
+                      <i class="material-icons"><?php echo $icon_name; ?></i>
+                      <h3><?php the_title(); ?></h3>
+                      <p><?php echo wp_trim_words(get_the_content(), 16); ?></p>
+                      <a href="#" class="read-more-link">Read More<i class="fas fa-angle-double-right"></i></a>
+                    </div>
+
+                  <?php
+                  // End of WP_Query Loop
+                  endwhile;
+                endif;
+                wp_reset_postdata();
+              endforeach;
+              ?>
+
             </div>
             <a href="#" class="btn btn-dark-hotpink">More Services</a>
           </div>
@@ -112,7 +129,6 @@
       <!-- -------------------- Work -------------------- -->
       <?php
       $work_args = array(
-        // 'post_type' => 'post',
         'category_name' => 'work',
         'posts_per_page' => 4
       );
@@ -242,7 +258,7 @@
                 ?>
                 
               </div>
-              <a href="#" class="btn btn-dark-hotpink">See Blog</a>
+              <a href="<?php echo esc_url(get_post_type_archive_link('post')); ?>" class="btn btn-dark-hotpink">See Blog</a>
             </div>
           </div>
         </section>
