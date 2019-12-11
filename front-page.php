@@ -272,8 +272,8 @@
           <div class="container">
             <h2 class="mb-225">Subscribe to our newsletter</h2>
             <p class="mb-125">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-            <form action="">
-              <input type="email" name="" id="" class="pr-700 pr-sm-850" placeholder="Your Email">
+            <form method="post" action="http://hornby-demo.local/?na=s" onsubmit="return newsletter_check(this)" novalidate>
+              <input type="email" name="ne" id="" class="pr-700 pr-sm-850" placeholder="Your Email" require>
               <button type="submit" class="btn btn-dark-hotpink btn-gradient-pink">Subscribe</button>
             </form>
           </div>
@@ -312,26 +312,9 @@
                 </div>
               </div>
               <div class="col-md">
-                <form action="" class="contact-form">
-                  <div class="form-row">
-                    <div class="col form-group">
-                      <input type="text" name="" id="" placeholder="First Name">
-                    </div>
-                    <div class="col form-group">
-                      <input type="text" name="" id="" placeholder="Last Name">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <input type="email" name="" id="" placeholder="Email">
-                  </div>
-                  <div class="form-group">
-                    <input type="text" name="" id="" placeholder="Subject">
-                  </div>
-                  <div class="form-group">
-                    <textarea name="" id="" cols="30" rows="10" placeholder="Message"></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-dark-hotpink">Send</button>
-                </form>
+
+                <?php wpforms_display(147, false, false);  // WPForms contact form ?>
+
               </div>
             </div>
           </div>

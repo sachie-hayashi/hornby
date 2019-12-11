@@ -25291,6 +25291,14 @@ footer .social-media a i {
   margin-bottom: 1.25rem;
 }
 
+.contact-form textarea {
+  height: calc((1em * 1.5 * 10) + (0.375rem * 2) + 2px) !important;
+}
+
+.contact-form .wpforms-confirmation-container {
+  padding-top: 1.5rem;
+}
+
 /************************************
   Modal
 ************************************/
