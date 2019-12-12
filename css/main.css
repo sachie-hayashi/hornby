@@ -24708,7 +24708,6 @@ header nav a:active, header nav i:active {
 
 @media (max-width: 767.98px) {
   .nav-container .search-form .search-field-wrap input:focus {
-    z-index: -10;
     width: 14rem !important;
     background-color: whitesmoke;
   }
@@ -25214,9 +25213,11 @@ footer .social-media a i {
   position: absolute;
   top: 50%;
   left: 0.75rem;
+  z-index: 10;
   font-family: "Font Awesome 5 Pro";
   font-size: 1.25rem;
   font-weight: 900;
+  pointer-events: none;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   content: '\f002';
