@@ -52,12 +52,6 @@
 
 /* ------------ More about ------------- */
 
-// .more-about {
-//   .img-wrap {
-//     @include aspect-ratio(10, 9);
-//   }
-// }
-
 .more-about {
   .text-container {
     @include make-container(); //Bootstrap mixin
@@ -153,10 +147,6 @@
   .row {
     align-items: flex-end;
 
-    // > div:first-child {
-    //   padding-right: 2rem;
-    // }
-
     .progress-item {
       margin-bottom: 1.5rem;
       
@@ -175,15 +165,12 @@
           width: 0;
           border-radius: 0.25rem 0 0 0.25rem;
           background-color: $dark-hotpink;
-          // transition: none !important;
           
           .progress-percentage {
-            // display: none;
             @include position(absolute, $right: 0);
             @extend .progress-title;
             font-size: 1rem;
             transform: translateY(-100%);
-            // transition: none !important;
             opacity: 0;
           }
         }
@@ -222,7 +209,6 @@
       @include aspect-ratio(12, 11);
       margin: 0 15px;
       padding: 0;
-      // border: solid 1px $dark-gray;
       @include media-breakpoint-up(md) {
         margin-left: 3.75rem;
         transform: translateY(14%);

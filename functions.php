@@ -54,11 +54,6 @@ if ( ! function_exists( 'hornby_setup' ) ) :
 		}
 		add_action('init', 'hornby_nav_menus');
 
-		// This theme uses wp_nav_menu() in one location.
-		// register_nav_menus( array(
-		// 	'menu-1' => esc_html__( 'Primary', 'hornby' ),
-		// ) );
-
 		/*
 		 * Switch default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
@@ -91,6 +86,12 @@ if ( ! function_exists( 'hornby_setup' ) ) :
 			'flex-width'  => true,
 			'flex-height' => true,
 		) );
+
+		// Add support for editor styles.
+		add_theme_support( 'editor-styles' );
+
+		// Enqueue editor styles.
+		add_editor_style( array( 'css/editor-style.css' ) );
 	}
 endif;
 add_action( 'after_setup_theme', 'hornby_setup' );
@@ -190,32 +191,3 @@ function hornby_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'hornby_scripts' );
-
-
-/**
- * Implement the Custom Header feature.
- */
-// require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
-// require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
-// require get_template_directory() . '/inc/template-functions.php';
-
-/**
- * Customizer additions.
- */
-// require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-// if ( defined( 'JETPACK__VERSION' ) ) {
-// 	require get_template_directory() . '/inc/jetpack.php';
-// }
-

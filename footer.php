@@ -1,3 +1,14 @@
+<?php
+/**
+ * The template for displaying the footer
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Hornby
+ */
+
+?>
+
     <footer class="py-600 bg-dim-gray text-white">
       <div class="container">
         <div class="d-md-flex justify-content-between align-items-start">
@@ -8,7 +19,7 @@
             </div>
             <div class="">
               <h4>About us</h4>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, voluptas.</p>
             </div>
           </div>
           <div class="social-media">

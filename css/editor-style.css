@@ -1,0 +1,78 @@
+/*****************************************************
+  Editor styles
+******************************************************/
+/************************************
+  Variables
+************************************/
+body {
+  font-family: 'Noto Sans JP', 'Noto Sans', sans-serif;
+  color: #707070;
+}
+
+.editor-post-title__block .editor-post-title__input {
+  font-family: 'Noto Sans JP', 'Noto Sans', sans-serif;
+  color: #434343;
+}
+
+h1 {
+  margin-top: 1.5rem;
+  color: #434343;
+  font-size: 2rem;
+}
+
+h2 {
+  margin-top: 1.5rem;
+  color: #434343;
+  font-size: 1.75rem;
+}
+
+h3 {
+  margin-top: 1.5rem;
+  color: #434343;
+  font-size: 1.5rem;
+}
+
+h4 {
+  margin-top: 1.5rem;
+  color: #434343;
+  font-size: 1.25rem;
+}
+
+h5 {
+  margin-top: 1.5rem;
+  color: #434343;
+  font-size: 1.125rem;
+}
+
+h6 {
+  margin-top: 1.5rem;
+  color: #434343;
+  font-size: 1rem;
+}
+
+blockquote {
+  padding: 1rem 1.5rem;
+  border-left: solid 4px #E8E8E8;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.wp-block-pullquote:not(.is-style-solid-color) {
+  margin: 2rem 0;
+  border-top: solid 4px #E8E8E8;
+  border-bottom: solid 4px #E8E8E8;
+}
+
+.wp-block-pullquote:not(.is-style-solid-color) blockquote {
+  margin-bottom: 0;
+  border: none;
+}
+
+.wp-block-pullquote.is-style-solid-color blockquote {
+  padding-top: 0;
+}
+
+iframe {
+  max-width: 100%;
+}
+/*# sourceMappingURL=editor-style.css.map */

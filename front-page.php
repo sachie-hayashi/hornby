@@ -1,4 +1,14 @@
-<?php get_header(); ?>
+<?php
+/**
+ * The template for displaying the front page
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Hornby
+ */
+
+get_header();
+?>
 
     <div id="home" class="main">
       <!-- -------------------- Carousel -------------------- -->

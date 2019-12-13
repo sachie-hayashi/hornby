@@ -24873,9 +24873,9 @@ footer .social-media a i {
   font-size: 2rem;
 }
 
-/*****************************************************
+/******************************************************
   styles related to blog posts, pages, archives, .etc
-******************************************************/
+*******************************************************/
 .page-title {
   margin-bottom: 3rem;
   color: #434343;
@@ -24970,6 +24970,82 @@ footer .social-media a i {
 
 .entry-content {
   margin-bottom: 2rem;
+}
+
+.entry-content h1 {
+  margin-top: 1.5rem;
+  color: #434343;
+  font-size: 2rem;
+}
+
+.entry-content h2 {
+  margin-top: 1.5rem;
+  color: #434343;
+  font-size: 1.75rem;
+}
+
+.entry-content h3 {
+  margin-top: 1.5rem;
+  color: #434343;
+  font-size: 1.5rem;
+}
+
+.entry-content h4 {
+  margin-top: 1.5rem;
+  color: #434343;
+  font-size: 1.25rem;
+}
+
+.entry-content h5 {
+  margin-top: 1.5rem;
+  color: #434343;
+  font-size: 1.125rem;
+}
+
+.entry-content h6 {
+  margin-top: 1.5rem;
+  color: #434343;
+  font-size: 1rem;
+}
+
+.entry-content blockquote {
+  padding: 1rem 1.5rem;
+  border-left: solid 4px #E8E8E8;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.entry-content .wp-block-pullquote:not(.is-style-solid-color) {
+  margin: 2rem 0;
+  border-top: solid 4px #E8E8E8;
+  border-bottom: solid 4px #E8E8E8;
+}
+
+.entry-content .wp-block-pullquote:not(.is-style-solid-color) blockquote {
+  margin-bottom: 0;
+  border: none;
+}
+
+.entry-content .wp-block-pullquote.is-style-solid-color blockquote {
+  padding-top: 0;
+}
+
+.entry-content iframe {
+  max-width: 100%;
+}
+
+.entry-content table > thead > tr, .entry-content table > tbody > tr {
+  border-bottom: solid 1px #E8E8E8;
+}
+
+.entry-content table th, .entry-content table td {
+  padding: 1rem;
+}
+
+.entry-content pre {
+  padding: 1rem;
+  border-radius: 0.25rem;
+  background-color: whitesmoke;
 }
 
 /* --------------- Pagination --------------- */

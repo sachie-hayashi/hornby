@@ -14,10 +14,23 @@ $soft-marigold: #EDC6A4;
 
 $gradient-pink: linear-gradient($soft-marigold, $dark-hotpink);
 
+
+$font-size-base: 1rem;
+
+$entry-headings: (
+  h1: $font-size-base * 2,
+  h2: $font-size-base * 1.75,
+  h3: $font-size-base * 1.5,
+  h4: $font-size-base * 1.25,
+  h5: $font-size-base * 1.125,
+  h6: $font-size-base * 1
+);
+
+$font-weights: 300, 400, 500, 600, 700;
+  
 $text-container-max-widthes: (
   sm: 540px,
   lg: 580px,
   xl: 640px
 );
 
-$font-weights: 300, 400, 500, 600, 700;
