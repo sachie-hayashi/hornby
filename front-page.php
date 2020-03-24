@@ -12,7 +12,7 @@ get_header();
 
     <div id="home" class="main">
       <!-- -------------------- Carousel -------------------- -->
-      <div id="carousel-control" class="hero-area carousel slide" data-ride="carousel" data-interval="false">       <!-- data-interval="false" -> stop auto slide -->
+      <div id="carousel-control" class="hero-area carousel slide" data-ride="carousel">       <!-- data-interval="false" -> stop auto slide -->
         <ol class="carousel-indicators">
           <li class="active" data-target="#carousel-control" data-slide-to="0"></li>
           <li  data-target="#carousel-control" data-slide-to="1"></li>
@@ -148,7 +148,7 @@ get_header();
       ?>
         <section>
           <div class="work section-wrap pb-0 text-center">
-            <div class="contaier-fluid">
+            <div class="container-fluid">
               <h2>Our work</h2>
               <span class="separator"></span>
               <p class="mb-275">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
@@ -282,8 +282,8 @@ get_header();
           <div class="container">
             <h2 class="mb-225">Subscribe to our newsletter</h2>
             <p class="mb-125">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-            <form method="post" action="http://hornby-demo.local/?na=s" onsubmit="return newsletter_check(this)" novalidate>
-              <input type="email" name="ne" id="" class="pr-700 pr-sm-850" placeholder="Your Email" require>
+            <form method="post" action="https://sachie-hayashi.com/demo/custom-wp-theme/?na=s" onsubmit="return newsletter_check(this)" novalidate>
+              <input type="email" name="ne" id="" class="pr-700 pr-sm-850" placeholder="Your Email" required>
               <button type="submit" class="btn btn-dark-hotpink btn-gradient-pink">Subscribe</button>
             </form>
           </div>

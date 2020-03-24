@@ -147,7 +147,7 @@ function hornby_scripts() {
 	wp_enqueue_style( 'normalize-style', 'https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css', array(), '8.0.1' );
 
 	// Enqueue bootstrap.min.css
-	wp_enqueue_style( 'bootstrap-style', get_template_directory_uri() . '/node_modules/bootstrap/dist/css/bootstrap.min.css', array(), '4.3.1' );
+	// wp_enqueue_style( 'bootstrap-style', get_template_directory_uri() . '/node_modules/bootstrap/dist/css/bootstrap.min.css', array(), '4.3.1' );
 	
 	// Enqueue main.css
 	wp_enqueue_style( 'hornby-style', get_template_directory_uri() . '/css/main.css', array(), '1.0' );
@@ -162,7 +162,7 @@ function hornby_scripts() {
 	wp_enqueue_style( 'wp-style', get_stylesheet_uri(), array(), '1.0' );
 
 	// Enqueue font awesome
-	wp_enqueue_script( 'font-awesome', 'https://kit.fontawesome.com/e73c9f8b45.js', array(), '5.11.2', );
+	wp_enqueue_script( 'font-awesome', 'https://kit.fontawesome.com/e73c9f8b45.js', array(), '5.11.2' );
 	// Add a crossorigin attribute on font awesome script tags
 	function add_crossorigin_to_script($tag, $handle, $src) {
 		if ($handle == 'font-awesome') {

@@ -6,7 +6,7 @@ $(function() {
   const $nav = $("header nav");
   const $navLink =  $('#nav-links > li > a');
 
-  /* ---------------- Toggle mobile slide navigagion ---------------- */
+  /* ---------------- Hamburger icon animation ---------------- */
   
   function toggleSlideNav() {
     $('#main-menu-bg-overlay').fadeToggle();

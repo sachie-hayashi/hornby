@@ -25601,6 +25601,11 @@ footer .social-media a i {
 }
 
 /* ------------ Work ------------- */
+.work .row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
 .work .row > [class*="col"] {
   position: relative;
 }
