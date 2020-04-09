@@ -206,7 +206,7 @@ get_header();
                 <div class="progress-item">
                   <span class="progress-title">Design</span>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="max-width: 90%;" aria-valuenow="90%" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" role="progressbar" style="max-width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
                       <span class="progress-percentage">90%</span>
                     </div>
                   </div>
@@ -214,7 +214,7 @@ get_header();
                 <div class="progress-item">
                   <span class="progress-title">Development</span>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="max-width: 80%;" aria-valuenow="80%" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" role="progressbar" style="max-width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
                       <span class="progress-percentage">80%</span>
                     </div>
                   </div>
@@ -222,7 +222,7 @@ get_header();
                 <div class="progress-item">
                   <span class="progress-title">Photography</span>
                   <div class="progress">
-                    <div class="progress-bar" role="progressbar" style="max-width: 85%;" aria-valuenow="85%" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" role="progressbar" style="max-width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">
                       <span class="progress-percentage">85%</span>
                     </div>
                   </div>
@@ -283,7 +283,7 @@ get_header();
             <h2 class="mb-225">Subscribe to our newsletter</h2>
             <p class="mb-125">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
             <form method="post" action="https://sachie-hayashi.com/demo/custom-wp-theme/?na=s" onsubmit="return newsletter_check(this)" novalidate>
-              <input type="email" name="ne" id="" class="pr-700 pr-sm-850" placeholder="Your Email" required>
+              <input type="email" name="ne" class="pr-700 pr-sm-850" placeholder="Your Email" required>
               <button type="submit" class="btn btn-dark-hotpink btn-gradient-pink">Subscribe</button>
             </form>
           </div>
@@ -339,7 +339,7 @@ get_header();
       </button>
       <div class="video-container">
         <div class="inner">
-          <iframe src="https://www.youtube.com/embed/MLpWrANjFbI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/MLpWrANjFbI" style="border: none;" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
     </div>
